@@ -84,7 +84,7 @@
 					class="body__app__homeContainer__main__contentContainer__itemContainer"
 				>
 					<Item
-						v-for="item of Items"
+						v-for="item of PagedItems"
 						:key="item._id"
 						:content="item"
 					/>
@@ -222,14 +222,7 @@ export default {
 			},
 		},
 
-		MaxPage() {
-			return Math.ceil(
-				this.$store.state.items.length / 16
-			);
-		},
-
-		// get items -> complex filter
-		Items() {
+		FilteredItems() {
 			const allItems = [...this.$store.state.items];
 
 			// item category
@@ -240,15 +233,25 @@ export default {
 
 			// liked
 
+			return allItems;
+		},
+
+		MaxPage() {
+			return Math.ceil(
+				this.FilteredItems.length / 16
+			);
+		},
+
+		// get items -> complex filter
+		PagedItems() {
+			const allItems = [...this.FilteredItems];
+
 			// get items by the current page (1-x)
 			const pagedItems = allItems.slice(
 				(this.Page - 1) * 16,
 				(this.Page - 1) * 16 + 16
 			);
 
-			// 	.filter(item => item);
-			// console.log(pagedItems);
-			// return pagedItems;
 			return pagedItems;
 		},
 	},
