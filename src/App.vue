@@ -64,5 +64,7 @@
 <script>
 export default {
 	name: 'App',
+	// checking the liked vuex data array
+	// beforeMount() {},
 };
 </script>

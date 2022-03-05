@@ -2,7 +2,7 @@
 	<div
 		class="body__app__homeContainer__main__contentContainer__itemContainer__item"
 	>
-		<div v-if="this.content.like">
+		<div v-if="this.liked.includes(this.content._id)">
 			<font-awesome-icon
 				class="body__app__homeContainer__main__contentContainer__itemContainer__item__likeButton"
 				icon="fa-solid fa-heart"
@@ -111,6 +111,9 @@ export default {
 			} else {
 				return eggTypes[0];
 			}
+		},
+		liked() {
+			return this.$store.state.liked;
 		},
 	},
 };

@@ -15,6 +15,8 @@ export default new Vuex.Store({
 			sets: {status: false, name: 'DÁRKOVÁ BALENÍ'},
 		},
 		page: 1,
+		// will be in vue presist
+		liked: [1, 2, 4],
 		items: [
 			{
 				_id: 1,
@@ -31,7 +33,6 @@ export default new Vuex.Store({
 					'kraslice2.jpg',
 					'kraslice3.jpg',
 				],
-				like: false,
 			},
 			{
 				_id: 2,
@@ -44,7 +45,6 @@ export default new Vuex.Store({
 				price: 500,
 				frontImg: 'kraslice2.jpg',
 				imgs: ['kraslice2.jpg'],
-				like: true,
 			},
 			{
 				_id: 3,
@@ -57,7 +57,6 @@ export default new Vuex.Store({
 				price: 200,
 				frontImg: 'kraslice3.jpg',
 				imgs: ['kraslice3.jpg', 'kraslice2.jpg'],
-				like: false,
 			},
 			{
 				_id: 4,
@@ -70,7 +69,6 @@ export default new Vuex.Store({
 				price: 250,
 				frontImg: 'kraslice3.jpg',
 				imgs: ['kraslice3.jpg', 'kraslice2.jpg'],
-				like: false,
 			},
 			{
 				_id: 5,
@@ -83,7 +81,6 @@ export default new Vuex.Store({
 				price: 250,
 				frontImg: 'kraslice3.jpg',
 				imgs: ['kraslice3.jpg', 'kraslice2.jpg'],
-				like: false,
 			},
 			{
 				_id: 6,
@@ -100,7 +97,6 @@ export default new Vuex.Store({
 					'kraslice2.jpg',
 					'kraslice3.jpg',
 				],
-				like: false,
 			},
 			{
 				_id: 7,
@@ -113,7 +109,6 @@ export default new Vuex.Store({
 				price: 500,
 				frontImg: 'kraslice2.jpg',
 				imgs: ['kraslice2.jpg'],
-				like: true,
 			},
 			{
 				_id: 8,
@@ -126,7 +121,6 @@ export default new Vuex.Store({
 				price: 200,
 				frontImg: 'kraslice3.jpg',
 				imgs: ['kraslice3.jpg', 'kraslice2.jpg'],
-				like: false,
 			},
 			{
 				_id: 9,
@@ -139,7 +133,6 @@ export default new Vuex.Store({
 				price: 250,
 				frontImg: 'kraslice3.jpg',
 				imgs: ['kraslice3.jpg', 'kraslice2.jpg'],
-				like: false,
 			},
 			{
 				_id: 10,
@@ -156,7 +149,6 @@ export default new Vuex.Store({
 					'kraslice2.jpg',
 					'kraslice3.jpg',
 				],
-				like: false,
 			},
 			{
 				_id: 11,
@@ -169,7 +161,6 @@ export default new Vuex.Store({
 				price: 500,
 				frontImg: 'kraslice2.jpg',
 				imgs: ['kraslice2.jpg'],
-				like: true,
 			},
 			{
 				_id: 12,
@@ -182,7 +173,6 @@ export default new Vuex.Store({
 				price: 250,
 				frontImg: 'kraslice3.jpg',
 				imgs: ['kraslice3.jpg', 'kraslice2.jpg'],
-				like: false,
 			},
 			{
 				_id: 13,
@@ -195,7 +185,6 @@ export default new Vuex.Store({
 				price: 250,
 				frontImg: 'kraslice3.jpg',
 				imgs: ['kraslice3.jpg', 'kraslice2.jpg'],
-				like: false,
 			},
 			{
 				_id: 14,
@@ -212,7 +201,6 @@ export default new Vuex.Store({
 					'kraslice2.jpg',
 					'kraslice3.jpg',
 				],
-				like: false,
 			},
 			{
 				_id: 15,
@@ -225,7 +213,6 @@ export default new Vuex.Store({
 				price: 500,
 				frontImg: 'kraslice2.jpg',
 				imgs: ['kraslice2.jpg'],
-				like: true,
 			},
 			{
 				_id: 16,
@@ -238,7 +225,6 @@ export default new Vuex.Store({
 				price: 250,
 				frontImg: 'kraslice3.jpg',
 				imgs: ['kraslice3.jpg', 'kraslice2.jpg'],
-				like: false,
 			},
 			{
 				_id: 17,
@@ -255,7 +241,6 @@ export default new Vuex.Store({
 					'kraslice2.jpg',
 					'kraslice3.jpg',
 				],
-				like: false,
 			},
 			{
 				_id: 18,
@@ -268,7 +253,6 @@ export default new Vuex.Store({
 				price: 500,
 				frontImg: 'kraslice2.jpg',
 				imgs: ['kraslice2.jpg'],
-				like: true,
 			},
 		],
 	},
