@@ -15,6 +15,8 @@ import {
 	faHeart as faHeartSolid,
 	faBoxOpen as faBoxOpenSolid,
 	faEgg as faEggSolid,
+	faAngleRight as faAngleRightSolid,
+	faAngleLeft as faAngleLeftSolid,
 } from '@fortawesome/free-solid-svg-icons';
 
 import {faHeart as faHeartRegular} from '@fortawesome/free-regular-svg-icons';
@@ -28,7 +30,9 @@ library.add(
 	faHeartRegular,
 	faHeartSolid,
 	faEggSolid,
-	faBoxOpenSolid
+	faBoxOpenSolid,
+	faAngleRightSolid,
+	faAngleLeftSolid
 );
 
 /* add font awesome icon component */

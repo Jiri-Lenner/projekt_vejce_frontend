@@ -17,7 +17,7 @@
 				>
 					<img
 						class="body__app__homeContainer__header__headerContainer__logoContainer__logo"
-						src="./assets/img/logo3.png"
+						src="./assets/img/pageAssets/logo.png"
 						alt=""
 					/>
 				</router-link>

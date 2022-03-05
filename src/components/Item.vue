@@ -2,7 +2,7 @@
 	<div
 		class="body__app__homeContainer__main__contentContainer__itemContainer__item"
 	>
-		<div>
+		<div v-if="this.content.like">
 			<font-awesome-icon
 				class="body__app__homeContainer__main__contentContainer__itemContainer__item__likeButton"
 				icon="fa-solid fa-heart"
@@ -10,7 +10,9 @@
 		</div>
 		<img
 			class="body__app__homeContainer__main__contentContainer__itemContainer__item__itemBackgroundImg"
-			src="../assets/img/kraslice.jpg"
+			:src="
+				require(`@/assets/img/itemImg/${this.content.frontImg}`)
+			"
 			alt=""
 		/>
 		<div
@@ -19,13 +21,12 @@
 			<h1
 				class="body__app__homeContainer__main__contentContainer__itemContainer__item__description__heading"
 			>
-				Set 5 kraslic
+				{{ content.name }}
 			</h1>
 			<p
 				class="body__app__homeContainer__main__contentContainer__itemContainer__item__description__description"
 			>
-				Krásný set 5 kraslic, obsahuje jednu
-				křepelčí 1 pšotrosí a tři slepičí.
+				{{ content.description }}
 			</p>
 		</div>
 		<div
@@ -41,7 +42,7 @@
 				<p
 					class="body__app__homeContainer__main__contentContainer__itemContainer__item__details__detail__text"
 				>
-					Křepelčí, Slepičí a Pštrosí
+					{{ eggType }}
 				</p>
 			</div>
 			<div
@@ -54,7 +55,7 @@
 				<p
 					class="body__app__homeContainer__main__contentContainer__itemContainer__item__details__detail__text"
 				>
-					10 kusů v jednom balení
+					{{ packageQuantity }}
 				</p>
 			</div>
 		</div>
@@ -64,7 +65,7 @@
 			<p
 				class="body__app__homeContainer__main__contentContainer__itemContainer__item__priceAndDetails__price"
 			>
-				200 Kč
+				{{ content.price }} Kč
 			</p>
 
 			<div
@@ -84,6 +85,34 @@
 <script>
 export default {
 	name: 'Item',
+	props: {
+		content: Object,
+	},
+	computed: {
+		packageQuantity() {
+			const eggCount = this.content.packageQuantity;
+			if (eggCount < 5) {
+				return `${eggCount} kraslice v jednom balení`;
+			} else if (eggCount > 4) {
+				return `${eggCount} kraslic v jednom balení`;
+			}
+		},
+		eggType() {
+			const eggTypes = this.content.eggType;
+			if (eggTypes.length > 1) {
+				let eggTypesString = '';
+				for (const [
+					i,
+					eggType,
+				] of eggTypes.entries()) {
+					eggTypesString += `${eggType}, `;
+				}
+				return eggTypesString;
+			} else {
+				return eggTypes[0];
+			}
+		},
+	},
 };
 </script>
 

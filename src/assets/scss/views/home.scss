@@ -23,9 +23,6 @@ body {
 
 				background-color: $panelBackground;
 
-				box-sizing: border-box;
-				//border-bottom: 1px solid #dadada;
-
 				.body__app__homeContainer__main__filterNav__buttonContainer {
 					display: flex;
 					justify-content: space-between;
@@ -57,10 +54,7 @@ body {
 						padding: 0.7em 1.6em;
 						border-radius: 5em;
 
-						transition: transform 100ms
-								ease-in-out,
-							background-color 150ms
-								ease-in-out;
+						transition: $chipTransition;
 
 						margin-right: 1.4rem;
 
@@ -142,6 +136,10 @@ body {
 						overflow: hidden;
 						position: relative;
 
+						display: flex;
+						flex-direction: column;
+						justify-content: space-between;
+
 						.body__app__homeContainer__main__contentContainer__itemContainer__item__likeButton {
 							font-size: 1rem;
 							text-decoration: none;
@@ -190,6 +188,7 @@ body {
 						.body__app__homeContainer__main__contentContainer__itemContainer__item__details {
 							display: flex;
 							flex-direction: column;
+
 							gap: 0.5rem;
 
 							box-sizing: border-box;
@@ -239,6 +238,74 @@ body {
 								}
 							}
 						}
+					}
+				}
+			}
+			.body__app__homeContainer__main__pageNav {
+				display: flex;
+				justify-content: flex-end;
+				align-items: center;
+
+				height: 8rem;
+				width: 100%;
+				max-width: 1600px;
+
+				background-color: $panelBackground;
+
+				.body__app__homeContainer__main__pageNav__buttonContainer {
+					display: flex;
+					justify-content: center;
+
+					.body__app__homeContainer__main__pageNav__buttonContainer__button {
+						font-size: 1.5rem;
+						padding: 0.5em 0.7em;
+						border: $darkText 2px solid;
+						border-radius: 0.3rem;
+						transition: $chipTransition;
+
+						&:first-child {
+							border-top-left-radius: 0.7rem;
+							border-bottom-left-radius: 0.7rem;
+						}
+						&:last-child {
+							border-top-right-radius: 0.7rem;
+							border-bottom-right-radius: 0.7rem;
+						}
+					}
+					.body__app__homeContainer__main__pageNav__buttonContainer__button___available {
+						cursor: pointer;
+						background-color: $systemColor___interact;
+
+						color: white;
+						border: transparent 2px solid;
+
+						&:hover {
+							transform: scale(1.1);
+						}
+						&:active {
+							transform: scale(1.2);
+						}
+					}
+
+					.body__app__homeContainer__main__pageNav__buttonContainer__button__pageNumber {
+						width: 3.25rem;
+
+						box-sizing: border-box;
+						text-align: center;
+
+						display: flex;
+						justify-content: center;
+						align-items: center;
+
+						font-size: 1.5rem;
+						font-weight: 500;
+						margin: 0 1rem;
+
+						border: $darkText 2px solid;
+						color: $darkText;
+						outline: none;
+
+						border-radius: 0.3rem;
 					}
 				}
 			}

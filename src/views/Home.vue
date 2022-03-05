@@ -83,15 +83,55 @@
 				<div
 					class="body__app__homeContainer__main__contentContainer__itemContainer"
 				>
-					<Item />
-					<Item />
-					<Item />
-					<Item />
-					<Item />
-					<Item />
+					<Item
+						v-for="item of Items"
+						:key="item._id"
+						:content="item"
+					/>
+				</div>
+			</section>
+			<section
+				class="body__app__homeContainer__main__pageNav"
+			>
+				<div
+					class="body__app__homeContainer__main__pageNav__buttonContainer"
+				>
+					<div
+						class="body__app__homeContainer__main__pageNav__buttonContainer__button"
+						@click="changePage(-1)"
+						:class="{
+							body__app__homeContainer__main__pageNav__buttonContainer__button___available:
+								this.$store.state.page - 1 >
+								0,
+						}"
+					>
+						<font-awesome-icon
+							icon="fa-solid fa-angle-left"
+						/>
+					</div>
+					<div
+						class="body__app__homeContainer__main__pageNav__buttonContainer__button__pageNumber"
+					>
+						{{ this.Page }}
+					</div>
+					<div
+						class="body__app__homeContainer__main__pageNav__buttonContainer__button"
+						@click="changePage(1)"
+						:class="{
+							body__app__homeContainer__main__pageNav__buttonContainer__button___available:
+								this.$store.state.page +
+									1 <=
+								this.MaxPage,
+						}"
+					>
+						<font-awesome-icon
+							icon="fa-solid fa-angle-right"
+						/>
+					</div>
 				</div>
 			</section>
 		</main>
+
 		<footer class="body__app__homeContainer__footer">
 			<!--Info na malířku-->
 			<!-- Login do administrace -> button na formulář -->
@@ -107,7 +147,13 @@ export default {
 	components: {
 		Item,
 	},
+	methods: {
+		changePage(change) {
+			this.Page = change;
+		},
+	},
 	computed: {
+		// items selectors
 		changeItemSelection: {
 			get: function () {
 				return this.$store.state.itemSelection;
@@ -155,6 +201,55 @@ export default {
 					status: true,
 				});
 			},
+		},
+		Page: {
+			get: function () {
+				return this.$store.state.page;
+			},
+			set: function (page) {
+				if (
+					this.$store.state.page + page >
+						this.MaxPage ||
+					this.$store.state.page + page == 0
+				) {
+					return;
+				}
+
+				this.$store.commit(
+					'updatePageNumber',
+					this.$store.state.page + page
+				);
+			},
+		},
+
+		MaxPage() {
+			return Math.ceil(
+				this.$store.state.items.length / 16
+			);
+		},
+
+		// get items -> complex filter
+		Items() {
+			const allItems = [...this.$store.state.items];
+
+			// item category
+
+			// get filtered itemss
+
+			// get sorted items
+
+			// liked
+
+			// get items by the current page (1-x)
+			const pagedItems = allItems.slice(
+				(this.Page - 1) * 16,
+				(this.Page - 1) * 16 + 16
+			);
+
+			// 	.filter(item => item);
+			// console.log(pagedItems);
+			// return pagedItems;
+			return pagedItems;
 		},
 	},
 };
