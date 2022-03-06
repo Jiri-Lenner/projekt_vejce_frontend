@@ -5,26 +5,47 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
 	state: {
+		// controls
 		itemSelection: {
 			sortAndFilter: false,
 			liked: false,
 		},
 		groups: {
-			all: {status: true, name: 'VŠE'},
-			eggs: {status: false, name: 'VAJÍČKA'},
-			sets: {status: false, name: 'DÁRKOVÁ BALENÍ'},
+			// udělat jako tags
+			// první tam nebude
+			all: {status: true, name: 'VŠE', cat: 'all'},
+			eggs: {
+				status: false,
+				name: 'VAJÍČKA',
+				cat: 'egg',
+			},
+			sets: {
+				status: false,
+				name: 'KOŠÍKY',
+				cat: 'sets',
+			},
 		},
+		// controlls - numbers
 		page: 1,
-		// will be in vue presist
-		liked: [1, 2, 4],
+		liked: [], // budou v presist
+		quantityIndex: 0, // budou v presist
+		// filters
+		filterEggTypesOn: {}, // budou v presist ? BUG problém když už danej typ vajička nebude dostupnej v presist furt bude . . . fix this
+		filterPackageQuantityOn: [],
+		sortPriceOn: [],
 		items: [
 			{
 				_id: 1,
-				category: ['egg'],
+				cat: ['sets'],
 				name: 'Set 5 Kraslic 2.0',
 				description:
 					'Krásný set 5 kraslic, obsahuje jednu křepelčí 1 pšotrosí a tři slepičí.',
-				eggType: ['Slepičí', 'Pštrosí', 'Křepelčí'],
+				eggType: [
+					'Slepičí',
+					'Pštrosí',
+					'Křepelčí',
+					'Krocaní',
+				],
 				packageQuantity: 5,
 				price: 200,
 				frontImg: 'kraslice.jpg',
@@ -36,7 +57,7 @@ export default new Vuex.Store({
 			},
 			{
 				_id: 2,
-				category: ['egg'],
+				cat: ['egg'],
 				name: 'Kraslice zelená',
 				description:
 					'Krásná kraslice zelená gravírovaná a whaterver . . . ',
@@ -48,7 +69,7 @@ export default new Vuex.Store({
 			},
 			{
 				_id: 3,
-				category: ['egg'],
+				cat: ['egg'],
 				name: 'Kraslice oranžová',
 				description:
 					'Krásná kraslice oranžová gravírovaná a whaterver . . . ',
@@ -60,7 +81,7 @@ export default new Vuex.Store({
 			},
 			{
 				_id: 4,
-				category: ['egg'],
+				cat: ['egg'],
 				name: 'Kraslice limitka',
 				description:
 					'Krásná kraslice limitka . . . super sexy hodí se všude',
@@ -72,7 +93,7 @@ export default new Vuex.Store({
 			},
 			{
 				_id: 5,
-				category: ['egg'],
+				cat: ['egg'],
 				name: 'Kraslice limitka',
 				description:
 					'Krásná kraslice limitka . . . super sexy hodí se všude',
@@ -84,12 +105,12 @@ export default new Vuex.Store({
 			},
 			{
 				_id: 6,
-				category: ['egg'],
+				cat: ['egg'],
 				name: 'Set 5 Kraslic 2.0',
 				description:
 					'Krásný set 5 kraslic, obsahuje jednu křepelčí 1 pšotrosí a tři slepičí.',
 				eggType: ['Slepičí', 'Pštrosí', 'Křepelčí'],
-				packageQuantity: 5,
+				packageQuantity: 69,
 				price: 200,
 				frontImg: 'kraslice.jpg',
 				imgs: [
@@ -100,7 +121,7 @@ export default new Vuex.Store({
 			},
 			{
 				_id: 7,
-				category: ['egg'],
+				cat: ['egg'],
 				name: 'Kraslice zelená',
 				description:
 					'Krásná kraslice zelená gravírovaná a whaterver . . . ',
@@ -112,7 +133,7 @@ export default new Vuex.Store({
 			},
 			{
 				_id: 8,
-				category: ['egg'],
+				cat: ['egg'],
 				name: 'Kraslice oranžová',
 				description:
 					'Krásná kraslice oranžová gravírovaná a whaterver . . . ',
@@ -124,7 +145,7 @@ export default new Vuex.Store({
 			},
 			{
 				_id: 9,
-				category: ['egg'],
+				cat: ['egg'],
 				name: 'Kraslice limitka',
 				description:
 					'Krásná kraslice limitka . . . super sexy hodí se všude',
@@ -136,7 +157,7 @@ export default new Vuex.Store({
 			},
 			{
 				_id: 10,
-				category: ['egg'],
+				cat: ['egg'],
 				name: 'Set 5 Kraslic 2.0',
 				description:
 					'Krásný set 5 kraslic, obsahuje jednu křepelčí 1 pšotrosí a tři slepičí.',
@@ -152,7 +173,7 @@ export default new Vuex.Store({
 			},
 			{
 				_id: 11,
-				category: ['egg'],
+				cat: ['egg'],
 				name: 'Kraslice zelená',
 				description:
 					'Krásná kraslice zelená gravírovaná a whaterver . . . ',
@@ -164,7 +185,7 @@ export default new Vuex.Store({
 			},
 			{
 				_id: 12,
-				category: ['egg'],
+				cat: ['egg'],
 				name: 'Kraslice limitka',
 				description:
 					'Krásná kraslice limitka . . . super sexy hodí se všude',
@@ -176,7 +197,7 @@ export default new Vuex.Store({
 			},
 			{
 				_id: 13,
-				category: ['egg'],
+				cat: ['egg'],
 				name: 'Kraslice limitka',
 				description:
 					'Krásná kraslice limitka . . . super sexy hodí se všude',
@@ -188,7 +209,7 @@ export default new Vuex.Store({
 			},
 			{
 				_id: 14,
-				category: ['egg'],
+				cat: ['egg'],
 				name: 'Set 5 Kraslic 2.0',
 				description:
 					'Krásný set 5 kraslic, obsahuje jednu křepelčí 1 pšotrosí a tři slepičí.',
@@ -204,7 +225,7 @@ export default new Vuex.Store({
 			},
 			{
 				_id: 15,
-				category: ['egg'],
+				cat: ['egg'],
 				name: 'Kraslice limitka předposlední ve stacku',
 				description:
 					'Kraslice limitka předposlední ve stacku ',
@@ -216,7 +237,7 @@ export default new Vuex.Store({
 			},
 			{
 				_id: 16,
-				category: ['egg'],
+				cat: ['egg'],
 				name: 'Kraslice limitka poslední ve stacku',
 				description:
 					'Krásná kraslice limitka . . . super sexy hodí se všude',
@@ -228,7 +249,7 @@ export default new Vuex.Store({
 			},
 			{
 				_id: 17,
-				category: ['egg'],
+				cat: ['egg'],
 				name: 'Set 5 Kraslic 2.00',
 				description:
 					'Krásný set 5 kraslic, obsahuje jednu křepelčí 1 pšotrosí a tři slepičí.',
@@ -244,11 +265,11 @@ export default new Vuex.Store({
 			},
 			{
 				_id: 18,
-				category: ['egg'],
+				cat: ['egg'],
 				name: 'Kraslice zelená 300',
 				description:
 					'Krásná kraslice zelená gravírovaná a whaterver . . . ',
-				eggType: ['Křepelčí'],
+				eggType: ['Křepelčí', 'Nosorožčí'],
 				packageQuantity: 1,
 				price: 500,
 				frontImg: 'kraslice2.jpg',
@@ -268,7 +289,41 @@ export default new Vuex.Store({
 		updatePageNumber(state, page) {
 			state.page = page;
 		},
+
+		// filters
+		updatefilterEggTypesOn(state, type) {
+			if (typeof type == 'object') {
+				state.filterEggTypesOn[type[0]] = type[1];
+			} else {
+				state.filterEggTypesOn[type] = false;
+			}
+		},
+
+		updateQuantityIndex(state, value) {
+			state.quantityIndex += value;
+		},
 	},
-	actions: {},
+	actions: {
+		updateFilterPackageQuantityOn(context, quantity) {
+			context.state.filterPackageQuantityOn.push(
+				quantity
+			);
+
+			context.state.filterPackageQuantityOn =
+				context.state.filterPackageQuantityOn
+					.sort()
+					.filter(value => {
+						if (value == 'vše') {
+							return false;
+						} else {
+							return true;
+						}
+					});
+
+			context.state.filterPackageQuantityOn.unshift(
+				'vše'
+			);
+		},
+	},
 	modules: {},
 });

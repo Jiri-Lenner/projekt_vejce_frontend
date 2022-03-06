@@ -105,6 +105,10 @@ export default {
 					i,
 					eggType,
 				] of eggTypes.entries()) {
+					if (i == eggTypes.length - 1) {
+						eggTypesString += `${eggType}`;
+						continue;
+					}
 					eggTypesString += `${eggType}, `;
 				}
 				return eggTypesString;

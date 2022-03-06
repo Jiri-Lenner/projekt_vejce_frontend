@@ -64,7 +64,42 @@
 <script>
 export default {
 	name: 'App',
+	// initialize filter items
+	methods: {
+		initFilterEggs() {
+			const eggTypes =
+				this.$store.state.filterEggTypesOn;
+			for (const item of this.$store.state.items) {
+				for (const type of item.eggType) {
+					if (!eggTypes[type]) {
+						this.$store.commit(
+							'updatefilterEggTypesOn',
+							type
+						);
+					}
+				}
+			}
+		},
+		initFilterQuantity() {
+			for (const item of this.$store.state.items) {
+				if (
+					!this.$store.state.filterPackageQuantityOn.includes(
+						item.packageQuantity
+					)
+				) {
+					this.$store.dispatch(
+						'updateFilterPackageQuantityOn',
+						item.packageQuantity
+					);
+				}
+			}
+		},
+	},
+
 	// checking the liked vuex data array
-	// beforeMount() {},
+	beforeMount() {
+		this.initFilterEggs();
+		this.initFilterQuantity();
+	},
 };
 </script>
