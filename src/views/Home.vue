@@ -80,26 +80,27 @@
 				<aside
 					class="body__app__homeContainer__main__contentContainer__itemFilter"
 				>
+					<h2>Seřazení a Filtr</h2>
 					<div
 						class="body__app__homeContainer__main__contentContainer__itemFilter__catContainer"
 					>
 						<p>Druhy Vajíček</p>
 						<div
-							v-for="(
-								item, i
-							) of Object.entries(FilterEggs)"
+							v-for="(item, i) of FilterEggs"
 							:key="i"
 						>
 							<input
 								type="checkBox"
 								:checked="
-									item[1] ? 'checked' : ''
+									$store.state.filterEggTypesOn.includes(
+										item
+									)
+										? 'checked'
+										: ''
 								"
-								@click="
-									selectFilter(item[0])
-								"
+								@click="selectFilter(item)"
 							/>
-							<p>{{ item[0] }}</p>
+							<p>{{ item }}</p>
 						</div>
 					</div>
 					<div
@@ -160,12 +161,37 @@
 					>
 						<p>Cena</p>
 						<div>
-							<input type="checkBox" />
-							<p>Nejdražší</p>
+							<input
+								type="checkBox"
+								:checked="
+									SortItems === 'descend'
+										? 'checked'
+										: ''
+								"
+								@click="
+									selectSortItems(
+										'descend'
+									)
+								"
+							/>
+							<p>Sestupně</p>
 						</div>
 						<div>
-							<input type="checkBox" />
-							<p>Nejlevnější</p>
+							<input
+								type="checkBox"
+								:checked="
+									SortItems === 'ascend'
+										? 'checked'
+										: ''
+								"
+								@click="
+									selectSortItems(
+										'ascend'
+									)
+								"
+							/>
+
+							<p>Vzestupně</p>
 						</div>
 					</div>
 				</aside>
@@ -247,6 +273,9 @@ export default {
 		selectFilter(item) {
 			this.FilterEggs = item;
 		},
+		selectSortItems(sortType) {
+			this.SortItems = sortType;
+		},
 	},
 	computed: {
 		// items selectors
@@ -319,6 +348,31 @@ export default {
 			},
 		},
 		// filters
+		SortItems: {
+			get: function () {
+				return this.$store.state.sortPriceOn;
+			},
+			set: function (sortType) {
+				if (
+					this.$store.state.sortPriceOn ==
+						'ascend' &&
+					sortType == 'ascend'
+				) {
+					this.$store.commit('updateSorting', '');
+				} else if (
+					this.$store.state.sortPriceOn ==
+						'descend' &&
+					sortType == 'descend'
+				) {
+					this.$store.commit('updateSorting', '');
+				} else {
+					this.$store.commit(
+						'updateSorting',
+						sortType
+					);
+				}
+			},
+		},
 		Quantity: {
 			get: function () {
 				return this.$store.state.quantityIndex;
@@ -342,26 +396,16 @@ export default {
 		},
 		FilterEggs: {
 			get: function () {
-				return this.$store.state.filterEggTypesOn;
+				return this.$store.state.filterEggTypesAll;
 			},
-			set: function (item) {
-				if (
-					this.$store.state.filterEggTypesOn[
-						item
-					] == true
-				) {
-					this.$store.commit(
-						'updatefilterEggTypesOn',
-						[item, false]
-					);
-				} else {
-					this.$store.commit(
-						'updatefilterEggTypesOn',
-						[item, true]
-					);
-				}
+			set: function (egg) {
+				this.$store.dispatch(
+					'updatefilterEggTypesOn',
+					egg
+				);
 			},
 		},
+
 		// filtered pages
 		FilteredItems() {
 			let allItems = [...this.$store.state.items];
@@ -418,31 +462,68 @@ export default {
 			) {
 				/// eggs
 				//// get all true eggs
-				const eggTypes =
+
+				const selectedEggs =
 					this.$store.state.filterEggTypesOn;
-				console.log(eggTypes);
-				const filterEggs = [];
-				for (const [egg, status] of Object.entries(
-					eggTypes
-				)) {
-					if (status) {
-						filterEggs.push(egg);
-					}
+				if (selectedEggs.length > 0) {
+					allItems = allItems.filter(function (
+						item
+					) {
+						for (const egg of selectedEggs) {
+							if (
+								item.eggType.includes(egg)
+							) {
+								return true;
+							} else {
+								continue;
+							}
+						}
+						return false;
+					});
 				}
 
-				allItems = allItems.filter(function (item) {
-					for (const egg of filterEggs) {
-						if (item.eggType.includes(egg)) {
-							continue;
+				/// packaging - bude se zapínat kliknutím!!
+				if (this.$store.state.quantityIndex !== 0) {
+					const listOfValues =
+						this.$store.state
+							.filterPackageQuantityOn;
+					const currentIndex =
+						this.$store.state.quantityIndex;
+
+					allItems = allItems.filter(function (
+						item
+					) {
+						if (
+							item.packageQuantity ==
+							listOfValues[currentIndex]
+						) {
+							return true;
 						} else {
 							return false;
 						}
-					}
-					return true;
-				});
-
-				/// packaging - bude se zapínat kliknutím!!
+					});
+				}
 				// get sorted items
+				if (
+					this.$store.state.sortPriceOn ==
+					'ascend'
+				) {
+					allItems.sort((itemA, itemB) => {
+						return itemA.price - itemB.price;
+					});
+				} else if (
+					this.$store.state.sortPriceOn ==
+					'descend'
+				) {
+					allItems
+						.sort((itemA, itemB) => {
+							return (
+								itemA.price - itemB.price
+							);
+						})
+						.reverse();
+				}
+
 				/// price
 			}
 

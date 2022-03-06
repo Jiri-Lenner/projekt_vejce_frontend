@@ -30,9 +30,10 @@ export default new Vuex.Store({
 		liked: [], // budou v presist
 		quantityIndex: 0, // budou v presist
 		// filters
-		filterEggTypesOn: {}, // budou v presist ? BUG problém když už danej typ vajička nebude dostupnej v presist furt bude . . . fix this
+		filterEggTypesOn: [], // budou v presist ? BUG problém když už danej typ vajička nebude dostupnej v presist furt bude . . . fix this
+		filterEggTypesAll: [],
 		filterPackageQuantityOn: [],
-		sortPriceOn: [],
+		sortPriceOn: '',
 		items: [
 			{
 				_id: 1,
@@ -275,6 +276,22 @@ export default new Vuex.Store({
 				frontImg: 'kraslice2.jpg',
 				imgs: ['kraslice2.jpg'],
 			},
+			{
+				_id: 19,
+				cat: ['egg'],
+				name: 'Set 5 Kraslic 2.0',
+				description:
+					'Krásný set 5 kraslic, obsahuje jednu křepelčí 1 pšotrosí a tři slepičí.',
+				eggType: ['Slepičí', 'Pštrosí', 'Křepelčí'],
+				packageQuantity: 5,
+				price: 200,
+				frontImg: 'kraslice.jpg',
+				imgs: [
+					'kraslice.jpg',
+					'kraslice2.jpg',
+					'kraslice3.jpg',
+				],
+			},
 		],
 	},
 	mutations: {
@@ -291,16 +308,15 @@ export default new Vuex.Store({
 		},
 
 		// filters
-		updatefilterEggTypesOn(state, type) {
-			if (typeof type == 'object') {
-				state.filterEggTypesOn[type[0]] = type[1];
-			} else {
-				state.filterEggTypesOn[type] = false;
-			}
+		updatefilterEggTypesAll(state, type) {
+			state.filterEggTypesAll.push(type);
 		},
 
 		updateQuantityIndex(state, value) {
 			state.quantityIndex += value;
+		},
+		updateSorting(state, sortOrder) {
+			state.sortPriceOn = sortOrder;
 		},
 	},
 	actions: {
@@ -323,6 +339,23 @@ export default new Vuex.Store({
 			context.state.filterPackageQuantityOn.unshift(
 				'vše'
 			);
+		},
+		updatefilterEggTypesOn(context, egg) {
+			if (
+				context.state.filterEggTypesOn.includes(egg)
+			) {
+				const eggIndex =
+					context.state.filterEggTypesOn.indexOf(
+						egg
+					);
+				context.state.filterEggTypesOn.splice(
+					eggIndex,
+					1
+				);
+			} else {
+				context.state.filterEggTypesOn.push(egg);
+			}
+			console.log(context.state.filterEggTypesOn);
 		},
 	},
 	modules: {},

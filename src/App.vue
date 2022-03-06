@@ -68,12 +68,12 @@ export default {
 	methods: {
 		initFilterEggs() {
 			const eggTypes =
-				this.$store.state.filterEggTypesOn;
+				this.$store.state.filterEggTypesAll;
 			for (const item of this.$store.state.items) {
 				for (const type of item.eggType) {
-					if (!eggTypes[type]) {
+					if (!eggTypes.includes(type)) {
 						this.$store.commit(
-							'updatefilterEggTypesOn',
+							'updatefilterEggTypesAll',
 							type
 						);
 					}

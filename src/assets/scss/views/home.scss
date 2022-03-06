@@ -116,6 +116,23 @@ body {
 					box-sizing: border-box;
 					padding: 2rem;
 
+					> h2 {
+						font-size: 1.8rem;
+						margin-bottom: 2rem;
+						position: relative;
+
+						color: $darkText;
+						&:before {
+							content: '';
+							position: absolute;
+							height: 2px;
+							bottom: -1rem;
+							left: 0;
+							right: 0;
+							background-color: $separator;
+						}
+					}
+
 					.body__app__homeContainer__main__contentContainer__itemFilter__catContainer {
 						width: 100%;
 
