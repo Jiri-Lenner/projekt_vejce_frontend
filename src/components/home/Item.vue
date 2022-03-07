@@ -2,12 +2,14 @@
 	<div
 		class="body__app__homeContainer__main__contentContainer__itemContainer__item"
 	>
+		<!-- Display hearth if the item is liked -->
 		<div v-if="this.liked.includes(this.content._id)">
 			<font-awesome-icon
 				class="body__app__homeContainer__main__contentContainer__itemContainer__item__likeButton"
 				icon="fa-solid fa-heart"
 			/>
 		</div>
+		<!-- Item img -->
 		<img
 			class="body__app__homeContainer__main__contentContainer__itemContainer__item__itemBackgroundImg"
 			:src="
@@ -15,23 +17,28 @@
 			"
 			alt=""
 		/>
+		<!-- Description container -->
 		<div
 			class="body__app__homeContainer__main__contentContainer__itemContainer__item__description"
 		>
+			<!-- Title -->
 			<h1
 				class="body__app__homeContainer__main__contentContainer__itemContainer__item__description__heading"
 			>
 				{{ content.name }}
 			</h1>
+			<!-- Short description -->
 			<p
 				class="body__app__homeContainer__main__contentContainer__itemContainer__item__description__description"
 			>
 				{{ content.description }}
 			</p>
 		</div>
+		<!-- Details container with icon -->
 		<div
 			class="body__app__homeContainer__main__contentContainer__itemContainer__item__details"
 		>
+			<!-- Egg types -->
 			<div
 				class="body__app__homeContainer__main__contentContainer__itemContainer__item__details__detail"
 			>
@@ -45,6 +52,7 @@
 					{{ eggType }}
 				</p>
 			</div>
+			<!-- Package quantity -->
 			<div
 				class="body__app__homeContainer__main__contentContainer__itemContainer__item__details__detail"
 			>
@@ -59,6 +67,7 @@
 				</p>
 			</div>
 		</div>
+		<!-- Lower part with price and button -->
 		<div
 			class="body__app__homeContainer__main__contentContainer__itemContainer__item__priceAndDetails"
 		>
@@ -72,7 +81,7 @@
 				class="body__app__homeContainer__main__contentContainer__itemContainer__item__priceAndDetails__buttonsContainer"
 			>
 				<router-link
-					to="/details"
+					:to="`/polozky/${this.content._id}`"
 					class="body__app__homeContainer__main__contentContainer__itemContainer__item__priceAndDetails__buttonsContainer_DetailButton"
 				>
 					VÍCE
@@ -85,10 +94,12 @@
 <script>
 export default {
 	name: 'Item',
+	// receives data from pops
 	props: {
 		content: Object,
 	},
 	computed: {
+		// Compute the text for the item quantity
 		packageQuantity() {
 			const eggCount = this.content.packageQuantity;
 			if (eggCount < 5) {
@@ -97,6 +108,7 @@ export default {
 				return `${eggCount} kraslic v jednom balení`;
 			}
 		},
+		// Compute egg text for the item egg list
 		eggType() {
 			const eggTypes = this.content.eggType;
 			if (eggTypes.length > 1) {
@@ -107,7 +119,7 @@ export default {
 				] of eggTypes.entries()) {
 					if (i == eggTypes.length - 1) {
 						eggTypesString += `${eggType}`;
-						continue;
+						break;
 					}
 					eggTypesString += `${eggType}, `;
 				}
@@ -116,11 +128,10 @@ export default {
 				return eggTypes[0];
 			}
 		},
+		// find out whether the item is liked or not -> liked are kept in separate array in vuex (_ids)
 		liked() {
 			return this.$store.state.liked;
 		},
 	},
 };
 </script>
-
-<style></style>

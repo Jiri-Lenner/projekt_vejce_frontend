@@ -5,14 +5,13 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
 	state: {
-		// controls
+		// cat filter right selectore
 		itemSelection: {
 			sortAndFilter: false,
 			liked: false,
 		},
+		// cat filter left selectors
 		groups: {
-			// udělat jako tags
-			// první tam nebude
 			all: {status: true, name: 'VŠE', cat: 'all'},
 			eggs: {
 				status: false,
@@ -25,18 +24,24 @@ export default new Vuex.Store({
 				cat: 'sets',
 			},
 		},
-		// controlls - numbers
+		// page controllers =
 		page: 1,
-		liked: [], // budou v presist
-		quantityIndex: 0, // budou v presist
+		liked: [], // presist
+		quantityIndex: 0,
+
 		// filters
-		filterEggTypesOn: [], // budou v presist ? BUG problém když už danej typ vajička nebude dostupnej v presist furt bude . . . fix this
+		/// eggs
+		filterEggTypesOn: [],
 		filterEggTypesAll: [],
+		/// package quantity
 		filterPackageQuantityOn: [],
+		/// price
 		sortPriceOn: '',
+
+		// Shop items
 		items: [
 			{
-				_id: 1,
+				_id: '1',
 				cat: ['sets'],
 				name: 'Set 5 Kraslic 2.0',
 				description:
@@ -57,7 +62,7 @@ export default new Vuex.Store({
 				],
 			},
 			{
-				_id: 2,
+				_id: '2',
 				cat: ['egg'],
 				name: 'Kraslice zelená',
 				description:
@@ -69,7 +74,7 @@ export default new Vuex.Store({
 				imgs: ['kraslice2.jpg'],
 			},
 			{
-				_id: 3,
+				_id: '3',
 				cat: ['egg'],
 				name: 'Kraslice oranžová',
 				description:
@@ -81,7 +86,7 @@ export default new Vuex.Store({
 				imgs: ['kraslice3.jpg', 'kraslice2.jpg'],
 			},
 			{
-				_id: 4,
+				_id: '4',
 				cat: ['egg'],
 				name: 'Kraslice limitka',
 				description:
@@ -93,7 +98,7 @@ export default new Vuex.Store({
 				imgs: ['kraslice3.jpg', 'kraslice2.jpg'],
 			},
 			{
-				_id: 5,
+				_id: '5',
 				cat: ['egg'],
 				name: 'Kraslice limitka',
 				description:
@@ -105,7 +110,7 @@ export default new Vuex.Store({
 				imgs: ['kraslice3.jpg', 'kraslice2.jpg'],
 			},
 			{
-				_id: 6,
+				_id: '6',
 				cat: ['egg'],
 				name: 'Set 5 Kraslic 2.0',
 				description:
@@ -121,7 +126,7 @@ export default new Vuex.Store({
 				],
 			},
 			{
-				_id: 7,
+				_id: '7',
 				cat: ['egg'],
 				name: 'Kraslice zelená',
 				description:
@@ -133,7 +138,7 @@ export default new Vuex.Store({
 				imgs: ['kraslice2.jpg'],
 			},
 			{
-				_id: 8,
+				_id: '8',
 				cat: ['egg'],
 				name: 'Kraslice oranžová',
 				description:
@@ -145,7 +150,7 @@ export default new Vuex.Store({
 				imgs: ['kraslice3.jpg', 'kraslice2.jpg'],
 			},
 			{
-				_id: 9,
+				_id: '9',
 				cat: ['egg'],
 				name: 'Kraslice limitka',
 				description:
@@ -157,7 +162,7 @@ export default new Vuex.Store({
 				imgs: ['kraslice3.jpg', 'kraslice2.jpg'],
 			},
 			{
-				_id: 10,
+				_id: '10',
 				cat: ['egg'],
 				name: 'Set 5 Kraslic 2.0',
 				description:
@@ -173,7 +178,7 @@ export default new Vuex.Store({
 				],
 			},
 			{
-				_id: 11,
+				_id: '11',
 				cat: ['egg'],
 				name: 'Kraslice zelená',
 				description:
@@ -185,7 +190,7 @@ export default new Vuex.Store({
 				imgs: ['kraslice2.jpg'],
 			},
 			{
-				_id: 12,
+				_id: '12',
 				cat: ['egg'],
 				name: 'Kraslice limitka',
 				description:
@@ -197,7 +202,7 @@ export default new Vuex.Store({
 				imgs: ['kraslice3.jpg', 'kraslice2.jpg'],
 			},
 			{
-				_id: 13,
+				_id: '13',
 				cat: ['egg'],
 				name: 'Kraslice limitka',
 				description:
@@ -209,7 +214,7 @@ export default new Vuex.Store({
 				imgs: ['kraslice3.jpg', 'kraslice2.jpg'],
 			},
 			{
-				_id: 14,
+				_id: '14',
 				cat: ['egg'],
 				name: 'Set 5 Kraslic 2.0',
 				description:
@@ -225,7 +230,7 @@ export default new Vuex.Store({
 				],
 			},
 			{
-				_id: 15,
+				_id: '15',
 				cat: ['egg'],
 				name: 'Kraslice limitka předposlední ve stacku',
 				description:
@@ -237,7 +242,7 @@ export default new Vuex.Store({
 				imgs: ['kraslice2.jpg'],
 			},
 			{
-				_id: 16,
+				_id: '16',
 				cat: ['egg'],
 				name: 'Kraslice limitka poslední ve stacku',
 				description:
@@ -249,7 +254,7 @@ export default new Vuex.Store({
 				imgs: ['kraslice3.jpg', 'kraslice2.jpg'],
 			},
 			{
-				_id: 17,
+				_id: '17',
 				cat: ['egg'],
 				name: 'Set 5 Kraslic 2.00',
 				description:
@@ -265,7 +270,7 @@ export default new Vuex.Store({
 				],
 			},
 			{
-				_id: 18,
+				_id: '18',
 				cat: ['egg'],
 				name: 'Kraslice zelená 300',
 				description:
@@ -277,7 +282,7 @@ export default new Vuex.Store({
 				imgs: ['kraslice2.jpg'],
 			},
 			{
-				_id: 19,
+				_id: '19',
 				cat: ['egg'],
 				name: 'Set 5 Kraslic 2.0',
 				description:
@@ -295,31 +300,38 @@ export default new Vuex.Store({
 		],
 	},
 	mutations: {
+		// cat filter right selection
 		changeItemSelection(state, property) {
 			state.itemSelection[property.property] =
 				property.propertyState;
 		},
-		changeStatus(state, property) {
+		// cat filter left selection
+		changeCategory(state, property) {
 			state.groups[property.name].status =
 				property.status;
 		},
+		// update current page
 		updatePageNumber(state, page) {
 			state.page = page;
 		},
 
 		// filters
+		/// Eggs
 		updatefilterEggTypesAll(state, type) {
 			state.filterEggTypesAll.push(type);
 		},
-
+		// Quantity
 		updateQuantityIndex(state, value) {
 			state.quantityIndex += value;
 		},
+		// Sorting
 		updateSorting(state, sortOrder) {
 			state.sortPriceOn = sortOrder;
 		},
 	},
 	actions: {
+		// Filters
+		/// Quantity
 		updateFilterPackageQuantityOn(context, quantity) {
 			context.state.filterPackageQuantityOn.push(
 				quantity
@@ -340,6 +352,7 @@ export default new Vuex.Store({
 				'vše'
 			);
 		},
+		/// Eggs (list with the selected eggs)
 		updatefilterEggTypesOn(context, egg) {
 			if (
 				context.state.filterEggTypesOn.includes(egg)
@@ -355,7 +368,6 @@ export default new Vuex.Store({
 			} else {
 				context.state.filterEggTypesOn.push(egg);
 			}
-			console.log(context.state.filterEggTypesOn);
 		},
 	},
 	modules: {},
