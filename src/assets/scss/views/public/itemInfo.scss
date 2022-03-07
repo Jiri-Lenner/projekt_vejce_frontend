@@ -1,0 +1,264 @@
+.body__app__detailContainer {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+	.body__app__detailContainer__goBackNav {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+
+		height: 6rem;
+		padding-bottom: 2rem;
+
+		width: 100%;
+		max-width: 1600px;
+
+		background-color: $panelBackground;
+
+		.body__app__detailContainer__goBackNav__back {
+			@include chipLink;
+		}
+	}
+	.body__app__detailContainer__detailCard {
+		display: flex;
+		align-items: flex-start;
+		width: 100%;
+		max-width: 1600px;
+
+		gap: 5rem;
+		.body__app__detailContainer__detailCard__imgCarousel {
+			width: 50%;
+			height: 40rem;
+
+			position: sticky;
+			top: 9rem;
+
+			user-select: none;
+
+			> img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				border-radius: 1rem;
+			}
+			border-radius: 1rem;
+			box-shadow: $filterBoxshadow;
+
+			.body__app__detailContainer__detailCard__imgCarousel__button {
+				position: absolute;
+
+				font-size: 2rem;
+				padding: 0.5em 0.7em;
+				border: $darkText 2px solid;
+				border-radius: 0.3rem;
+				transition: $chipTransition;
+				background-color: $navBackground;
+				color: $darkText;
+
+				display: flex;
+				align-items: center;
+
+				&:nth-child(2) {
+					border-top-left-radius: 1rem;
+					border-bottom-left-radius: 1rem;
+					left: -1rem;
+					top: calc(50% - 2.125rem);
+				}
+				&:nth-child(3) {
+					border-top-right-radius: 1rem;
+					border-bottom-right-radius: 1rem;
+					right: -1rem;
+					top: calc(50% - 2.125rem);
+				}
+
+				transition: $chipTransition;
+
+				&:hover {
+					cursor: pointer;
+					transform: scale(1.1);
+					color: #ffff;
+					background-color: $systemColor;
+					border: transparent 2px solid;
+				}
+				&:active {
+					transform: scale(1.2);
+				}
+			}
+		}
+		.body__app__detailContainer__detailCard__details {
+			width: 50%;
+			background-color: $navBackground;
+			box-shadow: $filterBoxshadow;
+			border-radius: 1rem;
+			padding: 2rem;
+			box-sizing: border-box;
+
+			> h2 {
+				font-size: 2rem;
+				margin-bottom: 2.5rem;
+				position: relative;
+				width: 100%;
+
+				color: $darkText;
+				&:before {
+					content: '';
+					position: absolute;
+					height: 2px;
+					bottom: -1rem;
+					left: 0;
+					right: 0;
+					background-color: $separator;
+				}
+			}
+
+			p {
+				font-size: 1.5rem;
+				line-height: 1.2;
+				font-style: italic;
+				color: $lightText;
+			}
+			.body__app__detailContainer__detailCard__details__predefinedDescription {
+				margin: 3rem 0;
+				display: flex;
+				flex-direction: column;
+				gap: 1rem;
+				.body__app__detailContainer__detailCard__details__predefinedDescription__detailContainer {
+					display: flex;
+					align-items: center;
+
+					.body__app__detailContainer__detailCard__details__predefinedDescription__detailContainer__icon {
+						color: $systemColor;
+						width: 2.5rem;
+						margin-right: 0.5rem;
+						font-size: 1.5rem;
+						display: flex;
+						justify-content: center;
+					}
+
+					> p {
+						font-size: 1.5rem;
+					}
+				}
+			}
+			// select amount, like or buy
+			.body__app__detailContainer__detailCard__details__quantityAndBuy {
+				display: flex;
+				justify-content: space-between;
+
+				.body__app__detailContainer__detailCard__details__quantityAndBuy__container {
+					display: flex;
+					user-select: none;
+
+					.body__app__detailContainer__detailCard__details__quantityAndBuy__container__button {
+						font-size: 1.2rem;
+						padding: 0.5em 0.7em;
+						border: $darkText 2px solid;
+						border-radius: 0.3rem;
+						transition: $chipTransition;
+
+						&:first-child {
+							border-top-left-radius: 0.5rem;
+							border-bottom-left-radius: 0.5rem;
+						}
+						&:last-child {
+							border-top-right-radius: 0.5rem;
+							border-bottom-right-radius: 0.5rem;
+						}
+					}
+					.body__app__detailContainer__detailCard__details__quantityAndBuy__container__count___available {
+						cursor: pointer;
+						background-color: $systemColor___interact;
+
+						color: white;
+						border: transparent 2px solid;
+
+						&:hover {
+							transform: scale(1.1);
+						}
+						&:active {
+							transform: scale(1.2);
+						}
+					}
+
+					.body__app__detailContainer__detailCard__details__quantityAndBuy__container__count {
+						width: 2.7rem;
+						height: 2.7rem;
+
+						box-sizing: border-box;
+						text-align: center;
+
+						display: flex;
+						justify-content: center;
+						align-items: center;
+
+						font-size: 1.2rem;
+						font-weight: 500;
+						margin: 0 1rem;
+
+						border: $darkText 2px solid;
+						color: $darkText;
+						outline: none;
+
+						border-radius: 0.3rem;
+					}
+
+					.body__app__detailContainer__detailCard__details__quantityAndBuy__container__like__button {
+						font-size: 1rem;
+
+						padding: 0.7em 1.6em;
+						border-radius: 5em;
+
+						transition: $chipTransition;
+
+						margin-right: 1.2rem;
+
+						border: $darkText 2px solid;
+
+						color: $darkerText;
+
+						&:last-child {
+							margin-right: 0rem;
+						}
+
+						&:hover {
+							cursor: pointer;
+
+							//background-color: $systemColor___hover;
+							transform: scale(1.1);
+						}
+						&:active {
+							transform: scale(1.2);
+							background-color: $systemColor___interact;
+							color: white;
+							border: transparent 2px solid;
+						}
+						user-select: none;
+					}
+					.body__app__detailContainer__detailCard__details__quantityAndBuy__container__like__button___selected {
+						background-color: $systemColor___interact;
+						transform: scale(1.1);
+						color: white;
+						border: transparent 2px solid;
+					}
+
+					.body__app__detailContainer__detailCard__details__quantityAndBuy__container__addToCart {
+						@include chipLink;
+						display: flex;
+
+						&:hover {
+							transform: scale(1.05);
+						}
+						&:active {
+							transform: scale(1.1);
+						}
+
+						gap: 1rem;
+					}
+				}
+			}
+		}
+	}
+}

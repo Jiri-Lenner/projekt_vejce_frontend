@@ -3,11 +3,14 @@
 		class="body__app__homeContainer__main__contentContainer__itemContainer__item"
 	>
 		<!-- Display hearth if the item is liked -->
-		<div v-if="this.liked.includes(this.content._id)">
-			<font-awesome-icon
-				class="body__app__homeContainer__main__contentContainer__itemContainer__item__likeButton"
-				icon="fa-solid fa-heart"
-			/>
+		<div
+			class="body__app__homeContainer__main__contentContainer__itemContainer__item__likeButton"
+			v-if="this.liked.includes(this.content._id)"
+			@click="
+				$store.commit('updateLiked', content._id)
+			"
+		>
+			<font-awesome-icon icon="fa-solid fa-heart" />
 		</div>
 		<!-- Item img -->
 		<img
@@ -31,7 +34,7 @@
 			<p
 				class="body__app__homeContainer__main__contentContainer__itemContainer__item__description__description"
 			>
-				{{ content.description }}
+				{{ description }}
 			</p>
 		</div>
 		<!-- Details container with icon -->
@@ -128,6 +131,15 @@ export default {
 				return eggTypes[0];
 			}
 		},
+		// shorten the description
+		description() {
+			const description = this.content.description
+				.split(' ')
+				.splice(0, 15);
+			description[description.length - 1] += '..';
+			return description.join(' ');
+		},
+
 		// find out whether the item is liked or not -> liked are kept in separate array in vuex (_ids)
 		liked() {
 			return this.$store.state.liked;

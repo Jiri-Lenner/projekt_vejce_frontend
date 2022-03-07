@@ -25,6 +25,7 @@
 		transform: scale(1.1);
 		cursor: pointer;
 	}
+	user-select: none;
 }
 
 @mixin chip {
@@ -59,6 +60,7 @@
 		color: white;
 		border: transparent 2px solid;
 	}
+	user-select: none;
 }
 
 @mixin chipLink {
@@ -92,4 +94,5 @@
 	&:active {
 		transform: scale(1.2);
 	}
+	user-select: none;
 }

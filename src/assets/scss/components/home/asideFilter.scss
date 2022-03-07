@@ -1,12 +1,12 @@
 .body__app__homeContainer__main__contentContainer__itemFilter {
 	//border-radius: 5px;
-	border-radius: 2rem;
+	border-radius: 1.5rem;
 	width: 25%;
 	box-shadow: $filterBoxshadow;
 	background-color: white;
 
 	position: sticky;
-	top: 7rem;
+	top: 9rem;
 
 	box-sizing: border-box;
 	padding: 2rem;
@@ -15,6 +15,7 @@
 		font-size: 1.8rem;
 		margin-bottom: 2rem;
 		position: relative;
+		width: 100%;
 
 		color: $darkText;
 		&:before {
@@ -78,6 +79,7 @@
 		.body__app__homeContainer__main__contentContainer__itemFilter__quantityCountContainer {
 			display: flex;
 			justify-content: flex-start;
+			user-select: none;
 
 			.body__app__homeContainer__main__contentContainer__itemFilter__quantityCountContainer__button {
 				font-size: 1.2rem;

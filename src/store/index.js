@@ -38,6 +38,9 @@ export default new Vuex.Store({
 		/// price
 		sortPriceOn: '',
 
+		// cart
+		cart: [],
+
 		// Shop items
 		items: [
 			{
@@ -45,7 +48,7 @@ export default new Vuex.Store({
 				cat: ['sets'],
 				name: 'Set 5 Kraslic 2.0',
 				description:
-					'Krásný set 5 kraslic, obsahuje jednu křepelčí 1 pšotrosí a tři slepičí.',
+					'Krásný set 5 kraslic, obsahuje jednu křepelčí 1 pšotrosí a tři slepičí.Krásný set 5 kraslic, obsahuje jednu křepelčí 1 pšotrosí a tři slepičí.Krásný set 5 kraslic, obsahuje jednu křepelčí 1 pšotrosí a tři slepičí.',
 				eggType: [
 					'Slepičí',
 					'Pštrosí',
@@ -66,7 +69,7 @@ export default new Vuex.Store({
 				cat: ['egg'],
 				name: 'Kraslice zelená',
 				description:
-					'Krásná kraslice zelená gravírovaná a whaterver . . . ',
+					'Krásná kraslice zelená gravírovaná a whaterver.',
 				eggType: ['Křepelčí'],
 				packageQuantity: 1,
 				price: 500,
@@ -78,7 +81,7 @@ export default new Vuex.Store({
 				cat: ['egg'],
 				name: 'Kraslice oranžová',
 				description:
-					'Krásná kraslice oranžová gravírovaná a whaterver . . . ',
+					'Krásná kraslice oranžová gravírovaná a whaterver.',
 				eggType: ['Slepičí'],
 				packageQuantity: 1,
 				price: 200,
@@ -90,7 +93,7 @@ export default new Vuex.Store({
 				cat: ['egg'],
 				name: 'Kraslice limitka',
 				description:
-					'Krásná kraslice limitka . . . super sexy hodí se všude',
+					'Krásná kraslice limitka.super sexy hodí se všude',
 				eggType: ['Křepelčí'],
 				packageQuantity: 4,
 				price: 250,
@@ -102,7 +105,7 @@ export default new Vuex.Store({
 				cat: ['egg'],
 				name: 'Kraslice limitka',
 				description:
-					'Krásná kraslice limitka . . . super sexy hodí se všude',
+					'Krásná kraslice limitka.super sexy hodí se všude',
 				eggType: ['Křepelčí'],
 				packageQuantity: 4,
 				price: 250,
@@ -130,7 +133,7 @@ export default new Vuex.Store({
 				cat: ['egg'],
 				name: 'Kraslice zelená',
 				description:
-					'Krásná kraslice zelená gravírovaná a whaterver . . . ',
+					'Krásná kraslice zelená gravírovaná a whaterver.',
 				eggType: ['Křepelčí'],
 				packageQuantity: 1,
 				price: 500,
@@ -142,7 +145,7 @@ export default new Vuex.Store({
 				cat: ['egg'],
 				name: 'Kraslice oranžová',
 				description:
-					'Krásná kraslice oranžová gravírovaná a whaterver . . . ',
+					'Krásná kraslice oranžová gravírovaná a whaterver.',
 				eggType: ['Slepičí'],
 				packageQuantity: 1,
 				price: 200,
@@ -154,7 +157,7 @@ export default new Vuex.Store({
 				cat: ['egg'],
 				name: 'Kraslice limitka',
 				description:
-					'Krásná kraslice limitka . . . super sexy hodí se všude',
+					'Krásná kraslice limitka.super sexy hodí se všude',
 				eggType: ['Křepelčí'],
 				packageQuantity: 4,
 				price: 250,
@@ -182,7 +185,7 @@ export default new Vuex.Store({
 				cat: ['egg'],
 				name: 'Kraslice zelená',
 				description:
-					'Krásná kraslice zelená gravírovaná a whaterver . . . ',
+					'Krásná kraslice zelená gravírovaná a whaterver.',
 				eggType: ['Křepelčí'],
 				packageQuantity: 1,
 				price: 500,
@@ -194,7 +197,7 @@ export default new Vuex.Store({
 				cat: ['egg'],
 				name: 'Kraslice limitka',
 				description:
-					'Krásná kraslice limitka . . . super sexy hodí se všude',
+					'Krásná kraslice limitka.super sexy hodí se všude',
 				eggType: ['Křepelčí'],
 				packageQuantity: 4,
 				price: 250,
@@ -206,7 +209,7 @@ export default new Vuex.Store({
 				cat: ['egg'],
 				name: 'Kraslice limitka',
 				description:
-					'Krásná kraslice limitka . . . super sexy hodí se všude',
+					'Krásná kraslice limitka.super sexy hodí se všude',
 				eggType: ['Křepelčí'],
 				packageQuantity: 4,
 				price: 250,
@@ -246,7 +249,7 @@ export default new Vuex.Store({
 				cat: ['egg'],
 				name: 'Kraslice limitka poslední ve stacku',
 				description:
-					'Krásná kraslice limitka . . . super sexy hodí se všude',
+					'Krásná kraslice limitka.super sexy hodí se všude',
 				eggType: ['Křepelčí'],
 				packageQuantity: 4,
 				price: 250,
@@ -274,7 +277,7 @@ export default new Vuex.Store({
 				cat: ['egg'],
 				name: 'Kraslice zelená 300',
 				description:
-					'Krásná kraslice zelená gravírovaná a whaterver . . . ',
+					'Krásná kraslice zelená gravírovaná a whaterver.',
 				eggType: ['Křepelčí', 'Nosorožčí'],
 				packageQuantity: 1,
 				price: 500,
@@ -328,6 +331,15 @@ export default new Vuex.Store({
 		updateSorting(state, sortOrder) {
 			state.sortPriceOn = sortOrder;
 		},
+		// Like or dislike item
+		updateLiked(state, _id) {
+			if (state.liked.includes(_id)) {
+				const index = state.liked.indexOf(_id);
+				state.liked.splice(index, 1);
+			} else {
+				state.liked.push(_id);
+			}
+		},
 	},
 	actions: {
 		// Filters
@@ -368,6 +380,20 @@ export default new Vuex.Store({
 			} else {
 				context.state.filterEggTypesOn.push(egg);
 			}
+		},
+		addToCart(context, data) {
+			for (const [
+				i,
+				item,
+			] of context.state.cart.entries()) {
+				if (data._id === item._id) {
+					context.state.cart[i].quantity +=
+						data.quantity;
+					return;
+				}
+			}
+			// otherwise
+			context.state.cart.push(data);
 		},
 	},
 	modules: {},

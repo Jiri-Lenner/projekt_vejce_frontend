@@ -49,8 +49,13 @@
 					/>
 					<div
 						class="body__app__homeContainer__header__headerContainer__cart__count"
+						v-if="
+							!$store.state.cart.length == 0
+						"
 					>
-						<p>1</p>
+						<p>
+							{{ $store.state.cart.length }}
+						</p>
 					</div>
 				</router-link>
 			</div>

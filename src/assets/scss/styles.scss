@@ -25,6 +25,10 @@
 @import './components/app/navigation';
 @import './components/app/footer';
 
+::selection {
+	background-color: #ff596f70;
+}
+
 // app
 body {
 	background-color: #f7f7f7;

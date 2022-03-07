@@ -1,39 +1,47 @@
 <template>
-	<div class="body__app__homeContainer">
-		<main class="body__app__homeContainer__main">
-			<!--Top part for filters-->
-			<CategoryNavigation />
+	<main class="body__app__homeContainer__main">
+		<!--Top part for filters-->
+		<CategoryNavigation />
 
-			<!--Main Section-->
+		<!--Main Section-->
 
-			<!--Items and filter and sort-->
-			<section
-				class="body__app__homeContainer__main__contentContainer"
-			>
-				<!-- Filter on the left side -->
-				<AsideFilter />
+		<!--Items and filter and sort-->
+		<section
+			class="body__app__homeContainer__main__contentContainer"
+		>
+			<!-- Filter on the left side -->
 
-				<!-- Item rendering -->
-				<div
-					class="body__app__homeContainer__main__contentContainer__itemContainer"
-				>
-					<!-- shop item component -->
-					<Item
-						v-for="item of PagedItems"
-						:key="item._id"
-						:content="item"
-					/>
-				</div>
-			</section>
-			<!-- Pager swapper at the bottom -->
-			<Pager
-				:filteredItemsLength="
-					this.FilteredItems.length
+			<AsideFilter
+				v-if="
+					this.$store.state.itemSelection
+						.sortAndFilter
 				"
-				:MaxPage="this.MaxPage"
 			/>
-		</main>
-	</div>
+
+			<!-- Item rendering -->
+
+			<div
+				class="body__app__homeContainer__main__contentContainer__itemContainer"
+				:class="{
+					body__app__homeContainer__main__contentContainer__itemContainer___off:
+						!this.$store.state.itemSelection
+							.sortAndFilter,
+				}"
+			>
+				<!-- shop item component -->
+				<Item
+					v-for="item of PagedItems"
+					:key="item._id"
+					:content="item"
+				/>
+			</div>
+		</section>
+		<!-- Pager swapper at the bottom -->
+		<Pager
+			:filteredItemsLength="this.FilteredItems.length"
+			:MaxPage="this.MaxPage"
+		/>
+	</main>
 </template>
 
 <script>
