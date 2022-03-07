@@ -26,7 +26,7 @@
 				<div
 					class="body__app__detailContainer__detailCard__imgCarousel__button"
 					@click="changeImg(-1)"
-					v-if="!this.itemData.imgs.length <= 1"
+					v-if="this.imgArrIf"
 				>
 					<font-awesome-icon
 						icon="fa-solid fa-angle-left"
@@ -36,7 +36,7 @@
 				<div
 					class="body__app__detailContainer__detailCard__imgCarousel__button"
 					@click="changeImg(1)"
-					v-if="!this.itemData.imgs.length <= 1"
+					v-if="this.imgArrIf"
 				>
 					<font-awesome-icon
 						icon="fa-solid fa-angle-right"
@@ -210,6 +210,9 @@ export default {
 	},
 
 	computed: {
+		imgArrIf() {
+			return this.itemData.imgs.length > 1;
+		},
 		// get the right data from the id
 		itemData() {
 			for (const item of this.$store.state.items) {
