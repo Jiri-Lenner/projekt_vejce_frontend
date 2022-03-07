@@ -19,6 +19,7 @@
 @import './views/public/home.scss';
 @import './views/public/itemInfo.scss';
 @import './views/public/login.scss';
+@import './views/public/notFound.scss';
 
 // components
 @import './components/app/navigation';
@@ -28,4 +29,3 @@
 body {
 	background-color: #f7f7f7;
 }
-
