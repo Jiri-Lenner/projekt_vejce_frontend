@@ -40,6 +40,7 @@ export default new Vuex.Store({
 
 		// cart
 		cart: [],
+		shippingPrice: 50,
 
 		// Shop items
 		items: [

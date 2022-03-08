@@ -4,6 +4,7 @@ import Home from '../views/public/Home.vue';
 import Cart from '../views/public/Cart.vue';
 import ItemInfo from '../views/public/ItemInfo.vue';
 import NotFound from '../views/public/NotFound.vue';
+import OrderForm from '../views/public/OrderForm.vue';
 
 Vue.use(VueRouter);
 
@@ -17,6 +18,11 @@ const routes = [
 		path: '/kosik',
 		name: 'Cart',
 		component: Cart,
+	},
+	{
+		path: '/kosik/formular',
+		name: 'OrderForm',
+		component: OrderForm,
 	},
 	{
 		path: '/polozky',

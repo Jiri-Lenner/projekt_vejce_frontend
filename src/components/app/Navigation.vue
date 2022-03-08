@@ -54,7 +54,7 @@
 						"
 					>
 						<p>
-							{{ $store.state.cart.length }}
+							{{ overallQuantity }}
 						</p>
 					</div>
 				</router-link>
@@ -66,6 +66,16 @@
 <script>
 export default {
 	name: 'Navigation',
+	computed: {
+		// calculate the the number of items
+		overallQuantity() {
+			let overallQuantity = 0;
+			for (const cartItem of this.$store.state.cart) {
+				overallQuantity += cartItem.quantity;
+			}
+			return overallQuantity;
+		},
+	},
 };
 </script>
 
