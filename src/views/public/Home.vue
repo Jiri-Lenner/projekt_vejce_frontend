@@ -194,10 +194,7 @@ export default {
 		// item pager method -> directly linked to the item v-for on the page
 		PagedItems() {
 			if (this.MaxPage < this.$store.state.page) {
-				this.$store.commit(
-					'updatePageNumber',
-					this.MaxPage
-				);
+				this.$store.commit('updatePageNumber', 1);
 			}
 			const allItems = [...this.FilteredItems];
 

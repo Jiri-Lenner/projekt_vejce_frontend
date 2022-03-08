@@ -340,6 +340,17 @@ export default new Vuex.Store({
 				state.liked.push(_id);
 			}
 		},
+		// remove from cart
+		removeFromCart(state, _id) {
+			for (const item of state.cart) {
+				if (item._id === _id) {
+					state.cart.splice(
+						state.cart.indexOf(item),
+						1
+					);
+				}
+			}
+		},
 	},
 	actions: {
 		// Filters

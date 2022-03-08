@@ -1,12 +1,12 @@
 <template>
 	<div class="body__app__detailContainer">
 		<div class="body__app__detailContainer__goBackNav">
-			<router-link
-				to="/"
+			<div
 				class="body__app__detailContainer__goBackNav__back"
+				@click="$router.go(-1)"
 			>
 				ZPĚT
-			</router-link>
+			</div>
 		</div>
 		<div class="body__app__detailContainer__detailCard">
 			<div

@@ -32,4 +32,8 @@
 // app
 body {
 	background-color: #f7f7f7;
+
+	> #app {
+		min-height: 100vh;
+	}
 }
