@@ -22,6 +22,12 @@
 			@include chipLink;
 		}
 	}
+	.body__app__cartContainer__bottomSpace {
+		margin-top: auto;
+		height: 8rem;
+		width: 100%;
+		max-width: 1600px;
+	}
 	.body__app__cartContainer__detailCard {
 		width: 100%;
 		max-width: 1600px;

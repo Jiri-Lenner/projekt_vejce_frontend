@@ -20,6 +20,7 @@
 @import './views/public/itemInfo.scss';
 @import './views/public/login.scss';
 @import './views/public/notFound.scss';
+@import './views/public/orderForm.scss';
 
 // components
 @import './components/app/navigation';
@@ -31,7 +32,7 @@
 
 // app
 body {
-	background-color: #f4f4f4;
+	background-color: $panelBackground;
 
 	> #app {
 		min-height: 100vh;

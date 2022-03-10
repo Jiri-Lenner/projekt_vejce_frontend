@@ -1,0 +1,164 @@
+.body__app__orderContainer {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+	.body__app__orderContainer__goBackNav {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+
+		height: 6rem;
+		padding-bottom: 2rem;
+
+		width: 100%;
+		max-width: 1600px;
+
+		background-color: $panelBackground;
+
+		.body__app__cartContainer__goBackNav__back {
+			@include chipLink;
+		}
+	}
+
+	.body__app__orderContainer__formContainer {
+		width: 100%;
+		max-width: 1600px;
+
+		background-color: #ffff;
+		border-radius: 1rem;
+		box-shadow: $filterBoxshadow;
+
+		box-sizing: border-box;
+		overflow: hidden;
+
+		position: relative;
+
+		display: flex;
+		justify-content: space-between;
+
+		.body__app__orderContainer__formContainer__formCover {
+			background-color: white;
+			width: 45%;
+			z-index: 100s;
+			position: relative;
+
+			box-sizing: border-box;
+			padding: 2rem;
+
+			> h2 {
+				font-size: 2rem;
+				margin-bottom: 3rem;
+				position: relative;
+				width: 100%;
+
+				color: $darkText;
+				&:before {
+					content: '';
+					position: absolute;
+					height: 2px;
+					bottom: -1rem;
+					left: 0;
+					right: 0;
+					background-color: $separator;
+				}
+			}
+
+			form {
+				display: inline-block;
+				width: 100%;
+
+				display: flex;
+				flex-direction: column;
+
+				> h3 {
+					font-size: 1.5rem;
+					margin-bottom: 1.2rem;
+					position: relative;
+					width: 100%;
+
+					color: $lightText;
+				}
+
+				input {
+					width: 100%;
+
+					font-size: 1.1rem;
+					margin-bottom: 2rem;
+					box-sizing: border-box;
+					padding: 0.7rem 1rem;
+
+					color: $darkText;
+
+					border: $separator 3px solid;
+					border-radius: 0.3rem;
+
+					outline: none;
+				}
+				.body__app__orderContainer__formContainer__formCover__form__buttons {
+					width: 100%;
+					display: flex;
+					justify-content: space-between;
+
+					.body__app__orderContainer__formContainer__formCover__form__previousButton {
+						@include chipLink;
+					}
+
+					.body__app__orderContainer__formContainer__formCover__form__previousButton___off {
+						display: none;
+					}
+
+					.body__app__orderContainer__formContainer__formCover__form__continueButton {
+						@include chipLink;
+					}
+
+					.body__app__orderContainer__formContainer__formCover__form__continueButton___off {
+						background-color: #fff;
+						border-color: $darkText;
+						color: $darkText;
+
+						&:hover {
+							transform: none;
+							cursor: not-allowed;
+						}
+						&:active {
+							transform: none;
+						}
+					}
+				}
+			}
+		}
+
+		.body__app__orderContainer__formContainer__img {
+			width: 53%;
+			clip-path: polygon(
+				13% 0,
+				100% 0,
+				100% 100%,
+				0% 100%
+			);
+			> img {
+				object-fit: cover;
+				height: 100%;
+				width: 100%;
+			}
+
+			.body__app__orderContainer__formContainer__img__cover {
+				position: absolute;
+				right: 0%;
+				left: 45%;
+				bottom: 0%;
+				top: 0%;
+				background-color: #ff596f7d;
+			}
+		}
+	}
+	.body__app__orderContainer__bottomSpace {
+		margin-top: auto;
+		height: 8rem;
+		width: 100%;
+		max-width: 1600px;
+	}
+}

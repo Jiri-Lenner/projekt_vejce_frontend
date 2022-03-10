@@ -78,10 +78,13 @@
 					to="/kosik/formular"
 					class="body__app__cartContainer__detailCard__priceSummary___orderButton"
 				>
-					Objednat
+					OBJEDNAT
 				</router-link>
 			</aside>
 		</div>
+		<div
+			class="body__app__cartContainer__bottomSpace"
+		></div>
 	</div>
 </template>
 
