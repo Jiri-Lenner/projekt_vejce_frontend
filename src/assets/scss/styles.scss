@@ -26,14 +26,17 @@
 @import './components/app/footer';
 
 ::selection {
-	background-color: #ff596f70;
+	background-color: #5555553e;
 }
 
 // app
 body {
-	background-color: #f7f7f7;
+	background-color: #f4f4f4;
 
 	> #app {
 		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+		position: relative;
 	}
 }

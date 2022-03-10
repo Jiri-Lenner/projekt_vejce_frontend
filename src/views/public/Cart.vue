@@ -17,14 +17,25 @@
 				}"
 			>
 				<h2>Košík</h2>
-				<div>
+				<div
+					class="body__app__cartContainer__detailCard__cartItems___empty"
+					v-if="overallQuantity == 0"
+				>
+					<img
+						src="@/assets/img/pageAssets/warning.png"
+						alt=""
+					/>
+
+					<h2>Prázdný košík!</h2>
+				</div>
+				<!-- <div>
 					<p
 						v-if="overallQuantity == 0"
 						class="body__app__cartContainer__detailCard__cartItems___empty"
 					>
 						Prázdný košík!
 					</p>
-				</div>
+				</div> -->
 				<ItemCart
 					v-for="(item, i) of this.$store.state
 						.cart"

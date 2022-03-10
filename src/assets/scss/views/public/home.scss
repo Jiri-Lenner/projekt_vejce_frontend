@@ -12,8 +12,9 @@ body {
 	.body__app__homeContainer__main {
 		display: flex;
 		flex-direction: column;
-
 		align-items: center;
+		justify-content: flex-start;
+		min-height: calc(100vh - 8rem);
 
 		////// FILTER NAV ///////
 
@@ -52,6 +53,41 @@ body {
 					minmax(350px, 400px)
 						// budu řešit přes media querry
 				);
+			}
+
+			.empty__style {
+				background-color: #ffff;
+				border-radius: 1rem;
+				box-shadow: $filterBoxshadow;
+				padding: 1.5rem;
+				box-sizing: border-box;
+
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+
+				> img {
+					height: 3.5rem;
+					width: 3.5rem;
+				}
+
+				h2 {
+					font-size: 1.5rem;
+
+					position: relative;
+					width: 100%;
+
+					color: $darkText;
+				}
+			}
+
+			.body__app__homeContainer__main__contentContainer__itemContainer___empty {
+				width: 75%;
+				@extend .empty__style;
+			}
+			.body__app__homeContainer__main__contentContainer__itemContainer___empty___off {
+				width: 100%;
+				@extend .empty__style;
 			}
 		}
 		////// PAGER //////

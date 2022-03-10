@@ -19,9 +19,26 @@
 			/>
 
 			<!-- Item rendering -->
+			<div
+				class="body__app__homeContainer__main__contentContainer__itemContainer___empty"
+				v-if="PagedItems == 0"
+				:class="{
+					body__app__homeContainer__main__contentContainer__itemContainer___empty___off:
+						!this.$store.state.itemSelection
+							.sortAndFilter,
+				}"
+			>
+				<img
+					src="@/assets/img/pageAssets/warning.png"
+					alt=""
+				/>
+
+				<h2>{{ CalculateEmpty }}</h2>
+			</div>
 
 			<div
 				class="body__app__homeContainer__main__contentContainer__itemContainer"
+				v-if="PagedItems != 0"
 				:class="{
 					body__app__homeContainer__main__contentContainer__itemContainer___off:
 						!this.$store.state.itemSelection
@@ -64,6 +81,41 @@ export default {
 	},
 	methods: {},
 	computed: {
+		// calculate empty
+		CalculateEmpty() {
+			if (
+				this.$store.state.itemSelection
+					.sortAndFilter &&
+				this.$store.state.itemSelection.liked &&
+				this.FilteredItems.length == 0 &&
+				this.$store.state.liked.length == 0
+			) {
+				return 'Nenalezeny žádné položky v kategorii oblíbené!';
+			} else if (
+				this.$store.state.itemSelection
+					.sortAndFilter &&
+				this.$store.state.itemSelection.liked &&
+				this.FilteredItems.length == 0 &&
+				this.$store.state.liked.length != 0
+			) {
+				return 'Nenalezeny žádné položky odpovídající filtru!';
+			} else if (
+				!this.$store.state.itemSelection
+					.sortAndFilter &&
+				this.$store.state.itemSelection.liked &&
+				this.FilteredItems.length == 0
+			) {
+				return 'Nenalezeny žádné položky v kategorii oblíbené!';
+			} else if (
+				this.$store.state.itemSelection
+					.sortAndFilter &&
+				!this.$store.state.itemSelection.liked &&
+				this.FilteredItems.length == 0
+			) {
+				return 'Nenalezeny žádné položky odpovídající filtru!';
+			}
+		},
+
 		// Main Item Filtering Funtion
 		FilteredItems() {
 			let allItems = [...this.$store.state.items];

@@ -3,8 +3,57 @@
 	display: flex;
 	justify-content: center;
 
+	margin-top: auto;
+
+	background-color: #ffff;
+
 	.body__app__homeContainer__footer__footerContainer {
 		width: 100%;
 		max-width: 1600px;
+		display: flex;
+		padding: 1rem 0;
+
+		font-size: 1rem;
+
+		display: flex;
+		justify-content: space-between;
+
+		position: relative;
+
+		color: $darkText;
+
+		a {
+			color: $darkText;
+			text-decoration: none;
+			display: inline-block;
+
+			transition: $chipTransition;
+
+			&:hover {
+				transform: scale(1.05);
+				color: $systemColor;
+			}
+			&:active {
+				transform: scale(1.1);
+			}
+		}
+	}
+
+	// .body__app__homeContainer__footer__footerContainer__info {
+	// 	display: flex;
+	// 	gap: 0.7rem;
+	// }
+	.body__app__homeContainer__footer__footerContainer__freepik {
+		display: flex;
+		gap: 0.7rem;
+	}
+
+	.body__app__homeContainer__footer__footerContainer__developer {
+		display: flex;
+		gap: 0.7rem;
+	}
+	.body__app__homeContainer__footer__footerContainer__copyright {
+		display: flex;
+		gap: 0.7rem;
 	}
 }
