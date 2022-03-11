@@ -1,7 +1,7 @@
 <template>
 	<div class="body__app__failedContainer">
 		<div class="body__app__failedContainer__box">
-			<h2>ERROR 400</h2>
+			<h2>Chyba!</h2>
 
 			<p>
 				Došlo k chybě při odesílání obejdnávky,

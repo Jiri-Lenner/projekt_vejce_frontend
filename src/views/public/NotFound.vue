@@ -1,7 +1,7 @@
 <template>
 	<div class="body__app__notFoundContainer">
 		<div class="body__app__notFoundContainer__box">
-			<h2>ERROR 404</h2>
+			<h2>Chyba!</h2>
 			<p>Stránka nebyla nalezena!</p>
 			<!-- link domů -->
 			<router-link
