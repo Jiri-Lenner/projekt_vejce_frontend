@@ -6,3 +6,4 @@
 
 [ ] ohlidani do success pokud byla objednávka úspěšně odeslána to samé pro failed
 [ ] rozdělit věci do komponent
+[ ] change favicon

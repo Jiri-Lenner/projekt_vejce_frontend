@@ -115,6 +115,8 @@ export default {
 				this.FilteredItems.length == 0
 			) {
 				return 'Nenalezeny žádné položky odpovídající filtru!';
+			} else {
+				return 'Nenalezeny žádné položky!';
 			}
 		},
 
