@@ -41,6 +41,8 @@ export default new Vuex.Store({
 		// cart
 		cart: [],
 		shippingPrice: 50,
+		orderedSuccess: false,
+		orderedFailed: false,
 
 		// Shop items
 		items: [
@@ -351,6 +353,18 @@ export default new Vuex.Store({
 					);
 				}
 			}
+		},
+		// clear cart
+		cleanCart(state) {
+			state.cart = [];
+		},
+		// order -> enable access to successful order
+		orderedSuccess(state) {
+			state.orderedSuccess = true;
+		},
+		// order -> enable access to failed order
+		orderedFailed(state) {
+			state.orderedFailed = true;
 		},
 	},
 	actions: {

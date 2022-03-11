@@ -5,6 +5,8 @@ import Cart from '../views/public/Cart.vue';
 import ItemInfo from '../views/public/ItemInfo.vue';
 import NotFound from '../views/public/NotFound.vue';
 import OrderForm from '../views/public/OrderForm.vue';
+import Success from '../views/public/Success.vue';
+import Failed from '../views/public/Failed.vue';
 
 Vue.use(VueRouter);
 
@@ -23,6 +25,16 @@ const routes = [
 		path: '/kosik/formular',
 		name: 'OrderForm',
 		component: OrderForm,
+	},
+	{
+		path: '/kosik/formular/odeslano',
+		name: 'Success',
+		component: Success,
+	},
+	{
+		path: '/kosik/formular/error',
+		name: 'Failed',
+		component: Failed,
 	},
 	{
 		path: '/polozky',

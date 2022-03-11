@@ -83,7 +83,9 @@ export default {
 	computed: {
 		// calculate empty
 		CalculateEmpty() {
-			if (
+			if (this.$store.state.items.length == 0) {
+				return 'Chyba při nahrávání položek, prosím zkuste otevřít stránku znovu!';
+			} else if (
 				this.$store.state.itemSelection
 					.sortAndFilter &&
 				this.$store.state.itemSelection.liked &&
