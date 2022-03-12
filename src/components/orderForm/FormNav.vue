@@ -1,11 +1,11 @@
 <template>
 	<div class="body__app__orderContainer__goBackNav">
-		<div
+		<router-link
+			:to="{name: 'Cart'}"
 			class="body__app__cartContainer__goBackNav__back"
-			@click="$router.go(-1)"
 		>
 			ZPĚT
-		</div>
+		</router-link>
 	</div>
 </template>
 

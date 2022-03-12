@@ -1,9 +1,22 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import VuexPersistence from 'vuex-persist';
 
 Vue.use(Vuex);
 
+// presistance
+
+const vuexLocal = new VuexPersistence({
+	key: 'krasliceLennerova',
+	storage: window.localStorage,
+	reducer: state => ({
+		cart: state.cart,
+		liked: state.liked,
+	}),
+});
+
 export default new Vuex.Store({
+	plugins: [vuexLocal.plugin],
 	state: {
 		// cat filter right selectore
 		itemSelection: {
@@ -316,7 +329,7 @@ export default new Vuex.Store({
 				packageQuantity: 1,
 				price: 400,
 				frontImg: 'pstroRed.jpg',
-				imgs: ['pstroRed1.jpg', 'pstroRed2.jpg'],
+				imgs: ['pstroRed.jpg', 'pstroRed2.jpg'],
 			},
 			{
 				_id: '17',
@@ -699,6 +712,14 @@ export default new Vuex.Store({
 				}
 			}
 		},
+		// add to cart
+		addToCartAdditionally(state, data) {
+			state.cart[data.index].quantity +=
+				data.quantity;
+		},
+		addToCartFirst(state, data) {
+			state.cart.push(data);
+		},
 		// clear cart
 		cleanCart(state) {
 			state.cart = [];
@@ -710,6 +731,13 @@ export default new Vuex.Store({
 		// order -> enable access to failed order
 		orderedFailed(state) {
 			state.orderedFailed = true;
+		},
+		// remove like when liked item was removed by the admin
+		removeLike(state, data) {
+			state.liked = data;
+		},
+		removeCart(state, data) {
+			state.cart = data;
 		},
 	},
 	actions: {
@@ -754,7 +782,7 @@ export default new Vuex.Store({
 		},
 		// add item to cart (with values / or without)
 		addToCart(context, data) {
-			// check if the item is already in cart 
+			// check if the item is already in cart
 			for (const [
 				i,
 				item,
@@ -763,10 +791,15 @@ export default new Vuex.Store({
 					data._id === item._id &&
 					context.state.cart[i].quantity +
 						data.quantity <=
-						100
+						100 &&
+					context.state.cart[i].quantity +
+						data.quantity >
+						0
 				) {
-					context.state.cart[i].quantity +=
-						data.quantity;
+					context.commit(
+						'addToCartAdditionally',
+						{index: i, quantity: data.quantity}
+					);
 
 					return;
 				} else if (
@@ -775,12 +808,15 @@ export default new Vuex.Store({
 						data.quantity >
 						100
 				) {
-					context.state.cart[i].quantity = 100;
+					context.commit(
+						'addToCartAdditionally',
+						{index: i, quantity: 100}
+					);
 					return;
 				}
 			}
 			// otherwise -> if the item is not yet in cart
-			context.state.cart.push(data);
+			context.commit('addToCartFirst', data);
 		},
 	},
 	modules: {},

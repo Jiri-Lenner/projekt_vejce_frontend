@@ -6,8 +6,7 @@
 			class="body__app__homeContainer__main__pageNav__buttonContainer"
 			v-if="MaxPage > 1"
 		>
-		
-		<div
+			<div
 				class="body__app__homeContainer__main__pageNav__buttonContainer__button"
 				@click="changePage(-2)"
 				:class="{
