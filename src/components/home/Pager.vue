@@ -6,6 +6,18 @@
 			class="body__app__homeContainer__main__pageNav__buttonContainer"
 			v-if="MaxPage > 1"
 		>
+		
+		<div
+				class="body__app__homeContainer__main__pageNav__buttonContainer__button"
+				@click="changePage(-2)"
+				:class="{
+					body__app__homeContainer__main__pageNav__buttonContainer__button___available:
+						this.Page - 2 > 0,
+				}"
+				v-if="!(this.Page - 2 <= 0)"
+			>
+				{{ this.Page - 2 }}
+			</div>
 			<div
 				class="body__app__homeContainer__main__pageNav__buttonContainer__button"
 				@click="changePage(-1)"
@@ -13,7 +25,7 @@
 					body__app__homeContainer__main__pageNav__buttonContainer__button___available:
 						this.Page - 1 > 0,
 				}"
-				v-if="!(this.Page - 1 == 0)"
+				v-if="!(this.Page - 1 <= 0)"
 			>
 				{{ this.Page - 1 }}
 			</div>
@@ -32,6 +44,17 @@
 				v-if="!(this.Page + 1 > this.MaxPage)"
 			>
 				{{ this.Page + 1 }}
+			</div>
+			<div
+				class="body__app__homeContainer__main__pageNav__buttonContainer__button"
+				@click="changePage(2)"
+				:class="{
+					body__app__homeContainer__main__pageNav__buttonContainer__button___available:
+						this.Page + 2 <= this.MaxPage,
+				}"
+				v-if="!(this.Page + 2 > this.MaxPage)"
+			>
+				{{ this.Page + 2 }}
 			</div>
 		</div>
 	</section>

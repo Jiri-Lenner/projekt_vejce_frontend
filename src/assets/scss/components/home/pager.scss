@@ -14,6 +14,7 @@
 		display: flex;
 		justify-content: center;
 		user-select: none;
+		gap: 0.7rem;
 
 		.body__app__homeContainer__main__pageNav__buttonContainer__button {
 			font-size: 1.5rem;
@@ -22,14 +23,7 @@
 			border-radius: 0.3rem;
 			transition: $chipTransition;
 
-			&:first-child {
-				border-top-left-radius: 0.7rem;
-				border-bottom-left-radius: 0.7rem;
-			}
-			&:last-child {
-				border-top-right-radius: 0.7rem;
-				border-bottom-right-radius: 0.7rem;
-			}
+			
 		}
 		.body__app__homeContainer__main__pageNav__buttonContainer__button___available {
 			cursor: pointer;
@@ -58,7 +52,7 @@
 
 			font-size: 1.5rem;
 			font-weight: 500;
-			margin: 0 1rem;
+			
 
 			border: $darkText 2px solid;
 			color: $darkText;

@@ -423,6 +423,231 @@ export default new Vuex.Store({
 				frontImg: 'setMedium1.jpg',
 				imgs: ['setMedium1.jpg', 'setMedium2.jpg'],
 			},
+			// ----------------------------------------- fake ---------------------------------------------------------
+			{
+				_id: '23',
+				cat: ['eggs'],
+				name: 'Bílá husí kraslice',
+				description:
+					'Krásna husí kraslice! Ručně malovaná ručně míchanými barvami na míru profesionální malířkou kraslic s léty zkušeností.',
+				eggType: [
+					'Husí',
+					// 'Pštrosí',
+					// 'Křepelčí',
+					// 'Krocaní',
+				],
+				packageQuantity: 1,
+				price: 250,
+				frontImg: 'husWhite.jpg',
+				imgs: ['husWhite.jpg'],
+			},
+			{
+				_id: '24',
+				cat: ['eggs'],
+				name: 'Modrá husí kraslice',
+				description:
+					'Krásna husí kraslice! Ručně malovaná ručně míchanými barvami na míru profesionální malířkou kraslic s léty zkušeností.',
+				eggType: [
+					'Husí',
+					// 'Pštrosí',
+					// 'Křepelčí',
+					// 'Krocaní',
+				],
+				packageQuantity: 1,
+				price: 250,
+				frontImg: 'husBlue.jpg',
+				imgs: ['husBlue.jpg'],
+			},
+			{
+				_id: '25',
+				cat: ['eggs'],
+				name: 'Zelená kachní kraslice',
+				description:
+					'Krásna kachní kraslice! Ručně malovaná ručně míchanými barvami na míru profesionální malířkou kraslic s léty zkušeností.',
+				eggType: [
+					'Kachní',
+					// 'Pštrosí',
+					// 'Křepelčí',
+					// 'Krocaní',
+				],
+				packageQuantity: 1,
+				price: 300,
+				frontImg: 'kachGreen.jpg',
+				imgs: ['kachGreen.jpg'],
+			},
+			{
+				_id: '26',
+				cat: ['eggs'],
+				name: 'Duhová kachní kraslice',
+				description:
+					'Krásna kachní kraslice! Ručně malovaná ručně míchanými barvami na míru profesionální malířkou kraslic s léty zkušeností.',
+				eggType: [
+					'Kachní',
+					// 'Pštrosí',
+					// 'Křepelčí',
+					// 'Krocaní',
+				],
+				packageQuantity: 1,
+				price: 300,
+				frontImg: 'kachRainbow.jpg',
+				imgs: ['kachRainbow.jpg'],
+			},
+			{
+				_id: '27',
+				cat: ['eggs'],
+				name: 'Hnědá kachní kraslice',
+				description:
+					'Krásna kachní kraslice! Ručně malovaná ručně míchanými barvami na míru profesionální malířkou kraslic s léty zkušeností.',
+				eggType: [
+					'Kachní',
+					// 'Pštrosí',
+					// 'Křepelčí',
+					// 'Krocaní',
+				],
+				packageQuantity: 1,
+				price: 300,
+				frontImg: 'kachBrown.jpg',
+				imgs: ['kachBrown.jpg'],
+			},
+			{
+				_id: '28',
+				cat: ['sets'],
+				name: 'Bílá a červená pštrosí kraslice',
+				description:
+					'Krásna pštrosí kraslice! Ručně malovaná ručně míchanými barvami na míru profesionální malířkou kraslic s léty zkušeností.',
+				eggType: [
+					'Pštrosí',
+					// 'Pštrosí',
+					// 'Křepelčí',
+					// 'Krocaní',
+				],
+				packageQuantity: 1,
+				price: 800,
+				frontImg: 'pstroRedAndWhite.jpg',
+				imgs: ['pstroRedAndWhite.jpg'],
+			},
+			{
+				_id: '29',
+				cat: ['eggs'],
+				name: 'Červená pštrosí kraslice',
+				description:
+					'Krásna pštrosí kraslice! Ručně malovaná ručně míchanými barvami na míru profesionální malířkou kraslic s léty zkušeností.',
+				eggType: [
+					'Pštrosí',
+					// 'Pštrosí',
+					// 'Křepelčí',
+					// 'Krocaní',
+				],
+				packageQuantity: 1,
+				price: 400,
+				frontImg: 'pstroRed.jpg',
+				imgs: ['pstroRed1.jpg', 'pstroRed2.jpg'],
+			},
+			{
+				_id: '30',
+				cat: ['eggs'],
+				name: 'Zelená pštrosí kraslice',
+				description:
+					'Krásna pštrosí kraslice! Ručně malovaná ručně míchanými barvami na míru profesionální malířkou kraslic s léty zkušeností.',
+				eggType: [
+					'Pštrosí',
+					// 'Pštrosí',
+					// 'Křepelčí',
+					// 'Krocaní',
+				],
+				packageQuantity: 1,
+				price: 400,
+				frontImg: 'pstroGreen.jpg',
+				imgs: ['pstroGreen.jpg'],
+			},
+			{
+				_id: '31',
+				cat: ['eggs'],
+				name: 'Bílá pštrosí kraslice',
+				description:
+					'Krásna pštrosí kraslice! Ručně malovaná ručně míchanými barvami na míru profesionální malířkou kraslic s léty zkušeností.',
+				eggType: [
+					'Pštrosí',
+					// 'Pštrosí',
+					// 'Křepelčí',
+					// 'Krocaní',
+				],
+				packageQuantity: 1,
+				price: 400,
+				frontImg: 'pstroWhite.jpg',
+				imgs: ['pstroWhite.jpg'],
+			},
+			{
+				_id: '32',
+				cat: ['eggs'],
+				name: 'Černá pštrosí kraslice',
+				description:
+					'Krásna pštrosí kraslice! Ručně malovaná ručně míchanými barvami na míru profesionální malířkou kraslic s léty zkušeností.',
+				eggType: [
+					'Pštrosí',
+					// 'Pštrosí',
+					// 'Křepelčí',
+					// 'Krocaní',
+				],
+				packageQuantity: 1,
+				price: 400,
+				frontImg: 'pstroDarkGreen.jpg',
+				imgs: [
+					'pstroDarkGreen.jpg',
+					'pstroDarkGreen2.jpg',
+				],
+			},
+			{
+				_id: '33',
+				cat: ['eggs'],
+				name: 'Kraslice na špejli',
+				description:
+					'Krásna kraslice na špejli! Ručně malovaná ručně míchanými barvami na míru profesionální malířkou kraslic s léty zkušeností.',
+				eggType: [
+					'Na špejli',
+					// 'Pštrosí',
+					// 'Křepelčí',
+					// 'Krocaní',
+				],
+				packageQuantity: 1,
+				price: 250,
+				frontImg: 'stick1.jpg',
+				imgs: ['stick1.jpg', 'stick2.jpg'],
+			},
+			{
+				_id: '34',
+				cat: ['sets'],
+				name: 'Kašík malý',
+				description:
+					'Krásný malý košík kraslic s kuřetem! Ručně malovaná ručně míchanými barvami na míru profesionální malířkou kraslic s léty zkušeností.',
+				eggType: [
+					'Slepičí',
+					// 'Pštrosí',
+					// 'Křepelčí',
+					// 'Krocaní',
+				],
+				packageQuantity: 2,
+				price: 400,
+				frontImg: 'setSmall1.jpg',
+				imgs: ['setSmall1.jpg', 'setSmall2.jpg'],
+			},
+			{
+				_id: '35',
+				cat: ['sets'],
+				name: 'Kašík střední',
+				description:
+					'Krásný střední košík kraslic s kuřetem! Ručně malovaná ručně míchanými barvami na míru profesionální malířkou kraslic s léty zkušeností.',
+				eggType: [
+					'Slepičí',
+					// 'Pštrosí',
+					// 'Křepelčí',
+					// 'Krocaní',
+				],
+				packageQuantity: 3,
+				price: 600,
+				frontImg: 'setMedium1.jpg',
+				imgs: ['setMedium1.jpg', 'setMedium2.jpg'],
+			},
 		],
 	},
 	mutations: {
@@ -527,7 +752,9 @@ export default new Vuex.Store({
 				context.state.filterEggTypesOn.push(egg);
 			}
 		},
+		// add item to cart (with values / or without)
 		addToCart(context, data) {
+			// check if the item is already in cart 
 			for (const [
 				i,
 				item,
@@ -552,7 +779,7 @@ export default new Vuex.Store({
 					return;
 				}
 			}
-			// otherwise
+			// otherwise -> if the item is not yet in cart
 			context.state.cart.push(data);
 		},
 	},

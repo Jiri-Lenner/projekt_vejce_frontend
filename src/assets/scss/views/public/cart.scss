@@ -1,3 +1,8 @@
+@import '../../components/cart/cartNav';
+@import '../../components/cart/cartTable';
+@import '../../components/cart/overview';
+
+
 .body__app__cartContainer {
 	width: 100%;
 	display: flex;
@@ -5,29 +10,15 @@
 	align-items: center;
 	flex-direction: column;
 
-	.body__app__cartContainer__goBackNav {
-		display: flex;
-		justify-content: flex-start;
-		align-items: center;
+	// go back nav
 
-		height: 6rem;
-		padding-bottom: 2rem;
-
-		width: 100%;
-		max-width: 1600px;
-
-		background-color: $panelBackground;
-
-		.body__app__cartContainer__goBackNav__back {
-			@include chipLink;
-		}
-	}
 	.body__app__cartContainer__bottomSpace {
 		margin-top: auto;
 		height: 8rem;
 		width: 100%;
 		max-width: 1600px;
 	}
+
 	.body__app__cartContainer__detailCard {
 		width: 100%;
 		max-width: 1600px;
@@ -36,256 +27,7 @@
 		align-items: flex-start;
 		gap: 5rem;
 
-		.body__app__cartContainer__detailCard__cartItems {
-			width: 75%;
-
-			background-color: #ffff;
-			border-radius: 1rem;
-			box-shadow: $filterBoxshadow;
-			padding: 2rem;
-			box-sizing: border-box;
-
-			> h2 {
-				font-size: 2rem;
-				margin-bottom: 2.5rem;
-				position: relative;
-				width: 100%;
-
-				color: $darkText;
-				&:before {
-					content: '';
-					position: absolute;
-					height: 2px;
-					bottom: -1rem;
-					left: 0;
-					right: 0;
-					background-color: $separator;
-				}
-			}
-
-			.body__app__cartContainer__detailCard__cartItems___empty {
-				padding: 1rem;
-				box-sizing: border-box;
-
-				display: flex;
-				align-items: center;
-				gap: 1rem;
-
-				> img {
-					height: 3.5rem;
-					width: 3.5rem;
-				}
-
-				h2 {
-					font-size: 1.5rem;
-
-					position: relative;
-					width: 100%;
-
-					color: $darkText;
-				}
-			}
-
-			.body__app__cartContainer__detailCard__cartItems__item {
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-				margin-bottom: 1.5rem;
-
-				&:last-child {
-					margin-bottom: 0;
-				}
-
-				.body__app__cartContainer__detailCard__cartItems__item__leftContainer {
-					display: flex;
-					align-items: center;
-					> img {
-						width: 7rem;
-						height: 5rem;
-						object-fit: cover;
-						border-radius: 0.5rem;
-					}
-					.body__app__cartContainer__detailCard__cartItems__item__leftContainer__nameLinke {
-						font-size: 1.5rem;
-						text-decoration: none;
-						color: $lightText;
-						margin-left: 2rem;
-
-						transition: all 150ms ease-in-out;
-
-						&:hover {
-							color: $systemColor;
-							transform: scale(1.1);
-						}
-						&:active {
-							transform: scale(1.2);
-						}
-					}
-				}
-
-				.body__app__cartContainer__detailCard__cartItems__item__rightContainer {
-					display: flex;
-					align-items: center;
-					justify-content: flex-end;
-					.body__app__cartContainer__detailCard__cartItems__item__rightContainer__container {
-						display: flex;
-						align-items: center;
-						user-select: none;
-
-						.body__app__cartContainer__detailCard__cartItems__item__rightContainer__container__button {
-							font-size: 1.2rem;
-							padding: 0.5em 0.7em;
-							border: $darkText 2px solid;
-							border-radius: 0.3rem;
-							transition: $chipTransition;
-
-							&:first-child {
-								border-top-left-radius: 0.5rem;
-								border-bottom-left-radius: 0.5rem;
-							}
-							&:last-child {
-								border-top-right-radius: 0.5rem;
-								border-bottom-right-radius: 0.5rem;
-							}
-							cursor: not-allowed;
-						}
-						.body__app__cartContainer__detailCard__cartItems__item__rightContainer__container__count___available {
-							cursor: pointer;
-							background-color: $systemColor___interact;
-
-							color: white;
-							border: transparent 2px solid;
-
-							&:hover {
-								transform: scale(1.1);
-							}
-							&:active {
-								transform: scale(1.2);
-							}
-						}
-
-						.body__app__cartContainer__detailCard__cartItems__item__rightContainer__container__count {
-							width: 2.7rem;
-							height: 2.7rem;
-
-							box-sizing: border-box;
-							text-align: center;
-
-							display: flex;
-							justify-content: center;
-							align-items: center;
-
-							font-size: 1.2rem;
-							font-weight: 500;
-							margin: 0 1rem;
-
-							border: $darkText 2px solid;
-							color: $darkText;
-							outline: none;
-
-							border-radius: 0.3rem;
-						}
-					}
-					.body__app__cartContainer__detailCard__cartItems__item__rightContainer__price {
-						font-size: 1.5rem;
-						color: $lightText;
-						margin-left: 2rem;
-						width: 8rem;
-						display: flex;
-						justify-content: center;
-					}
-					.body__app__cartContainer__detailCard__cartItems__item__rightContainer__remove {
-						margin-left: 2rem;
-						font-size: 1.5rem;
-						text-decoration: none;
-
-						padding: 0.3em 1em;
-						border-radius: 5em;
-
-						transition: transform 100ms
-								ease-in-out,
-							background-color 150ms
-								ease-in-out;
-
-						background-color: #ffff;
-						color: $darkText;
-						border: $darkText 2px solid;
-
-						&:hover {
-							cursor: pointer;
-
-							background-color: $systemColor___interact;
-							color: white;
-							border: transparent 2px solid;
-							transform: scale(1.1);
-						}
-						&:active {
-							transform: scale(1.2);
-						}
-						user-select: none;
-					}
-				}
-			}
-		}
-
-		.body__app__cartContainer__detailCard__cartItems___off {
-			width: 100%;
-		}
-
-		.body__app__cartContainer__detailCard__priceSummary {
-			width: 25%;
-
-			display: flex;
-			flex-direction: column;
-
-			background-color: #ffff;
-			border-radius: 1rem;
-			box-shadow: $filterBoxshadow;
-			padding: 2rem;
-			box-sizing: border-box;
-
-			position: sticky;
-			top: 9rem;
-
-			> h2 {
-				font-size: 2rem;
-				margin-bottom: 2.5rem;
-				position: relative;
-				width: 100%;
-
-				color: $darkText;
-				&:before {
-					content: '';
-					position: absolute;
-					height: 2px;
-					bottom: -1rem;
-					left: 0;
-					right: 0;
-					background-color: $separator;
-				}
-			}
-			.body__app__cartContainer__detailCard__priceSummary__detailContainer {
-				display: flex;
-				justify-content: space-between;
-				margin-bottom: 1rem;
-
-				> p {
-					color: $lightText;
-					font-size: 1.5rem;
-				}
-			}
-			.body__app__cartContainer__detailCard__priceSummary__separator {
-				height: 2px;
-				width: 100%;
-				background-color: #dadada;
-				margin-bottom: 1rem;
-			}
-			.body__app__cartContainer__detailCard__priceSummary___orderButton {
-				@include chipLink;
-				margin-right: 0;
-				margin-top: 1rem;
-				align-self: flex-end;
-			}
-		}
+		
+		// price summary
 	}
 }
