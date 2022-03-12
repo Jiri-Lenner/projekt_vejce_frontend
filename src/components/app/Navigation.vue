@@ -4,11 +4,12 @@
 			class="body__app__homeContainer__header__headerContainer"
 		>
 			<!--Company name => Lennerová kraslice ?-->
-			<h1
+			<router-link
+				to="/"
 				class="body__app__homeContainer__header__headerContainer__title"
 			>
 				Kraslice Lennerová
-			</h1>
+			</router-link>
 			<!--Logo (in center)-->
 			<router-link
 				to="/"

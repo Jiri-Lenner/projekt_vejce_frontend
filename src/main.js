@@ -25,6 +25,8 @@ import {
 	faCopyright as faCopyrightSolid,
 	faCreditCard as faCreditCardSolid,
 	faCoins as faCoinsSolid,
+	faPlus as faPlusSolid,
+	faMinus as faMinusSolid,
 } from '@fortawesome/free-solid-svg-icons';
 
 import {faHeart as faHeartRegular} from '@fortawesome/free-regular-svg-icons';
@@ -48,7 +50,9 @@ library.add(
 	faPenRulerSolid,
 	faCopyrightSolid,
 	faCreditCardSolid,
-	faCoinsSolid
+	faCoinsSolid,
+	faPlusSolid,
+	faMinusSolid
 );
 
 /* add font awesome icon component */

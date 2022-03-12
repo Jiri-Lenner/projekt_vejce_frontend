@@ -46,7 +46,39 @@
 			<div
 				class="body__app__detailContainer__detailCard__details"
 			>
-				<h2>{{ itemData.name }}</h2>
+				<div
+					class="body__app__detailContainer__detailCard__details__headerContainer"
+				>
+					<h2>{{ itemData.name }}</h2>
+					<div
+						class="body__app__detailContainer__detailCard__details__quantityAndBuy__container__like__button"
+						id="heart"
+						@click="like"
+						:class="{
+							body__app__detailContainer__detailCard__details__quantityAndBuy__container__like__button___selected:
+								this.$store.state.liked.includes(
+									this._id
+								),
+						}"
+					>
+						<font-awesome-icon
+							icon="fa-regular fa-heart"
+							v-if="
+								!this.$store.state.liked.includes(
+									this._id
+								)
+							"
+						/>
+						<font-awesome-icon
+							icon="fa-solid fa-heart"
+							v-if="
+								this.$store.state.liked.includes(
+									this._id
+								)
+							"
+						/>
+					</div>
+				</div>
 				<p>{{ itemData.description }}</p>
 				<div
 					class="body__app__detailContainer__detailCard__details__predefinedDescription"
@@ -79,69 +111,66 @@
 					<div
 						class="body__app__detailContainer__detailCard__details__quantityAndBuy__container"
 					>
-						<div
-							class="body__app__detailContainer__detailCard__details__quantityAndBuy__container__button"
-							@click="changeQuantity(-1)"
-							:class="{
-								body__app__detailContainer__detailCard__details__quantityAndBuy__container__count___available:
-									this.quantity - 1 > 0,
-							}"
+						<p
+							class="body__app__detailContainer__detailCard__details__quantityAndBuy__container__price"
 						>
-							<font-awesome-icon
-								icon="fa-solid fa-angle-left"
-							/>
-						</div>
-						<div
-							class="body__app__detailContainer__detailCard__details__quantityAndBuy__container__count"
-						>
-							{{ quantity }}
-						</div>
-						<div
-							class="body__app__detailContainer__detailCard__details__quantityAndBuy__container__button"
-							@click="changeQuantity(1)"
-							:class="{
-								body__app__detailContainer__detailCard__details__quantityAndBuy__container__count___available:
-									this.quantity + 1 <= 99,
-							}"
-						>
-							<font-awesome-icon
-								icon="fa-solid fa-angle-right"
-							/>
-						</div>
+							{{ itemData.price }}Kč
+						</p>
 					</div>
+
 					<!-- like and add to cart -->
 					<div
 						class="body__app__detailContainer__detailCard__details__quantityAndBuy__container"
 					>
+						<!-- Quantity -->
+
 						<div
-							class="body__app__detailContainer__detailCard__details__quantityAndBuy__container__like__button"
-							id="heart"
-							@click="like"
-							:class="{
-								body__app__detailContainer__detailCard__details__quantityAndBuy__container__like__button___selected:
-									this.$store.state.liked.includes(
-										this._id
-									),
-							}"
+							class="body__app__detailContainer__detailCard__details__quantityAndBuy__container"
 						>
-							<font-awesome-icon
-								icon="fa-regular fa-heart"
-								v-if="
-									!this.$store.state.liked.includes(
-										this._id
-									)
-								"
-							/>
-							<font-awesome-icon
-								icon="fa-solid fa-heart"
-								v-if="
-									this.$store.state.liked.includes(
-										this._id
-									)
-								"
-							/>
+							<div
+								class="body__app__detailContainer__detailCard__details__quantityAndBuy__container__quantity"
+							>
+								<div
+									class="body__app__detailContainer__detailCard__details__quantityAndBuy__container__quantity__button"
+									@click="
+										changeQuantity(-1)
+									"
+									:class="{
+										body__app__detailContainer__detailCard__details__quantityAndBuy__container__count__quantity___available:
+											this.quantity -
+												1 >
+											0,
+									}"
+								>
+									<font-awesome-icon
+										icon="fa-solid fa-minus"
+									/>
+								</div>
+								<div
+									class="body__app__detailContainer__detailCard__details__quantityAndBuy__container__quantity__count"
+								>
+									{{ quantity }}
+								</div>
+								<div
+									class="body__app__detailContainer__detailCard__details__quantityAndBuy__container__quantity__button"
+									@click="
+										changeQuantity(1)
+									"
+									:class="{
+										body__app__detailContainer__detailCard__details__quantityAndBuy__container__count__quantity___available:
+											this.quantity +
+												1 <=
+											100,
+									}"
+								>
+									<font-awesome-icon
+										icon="fa-solid fa-plus"
+									/>
+								</div>
+							</div>
 						</div>
 
+						<!-- Add to basket -->
 						<div
 							class="body__app__detailContainer__detailCard__details__quantityAndBuy__container__addToCart"
 							@click="addToCart"
@@ -192,6 +221,7 @@ export default {
 				_id: this._id,
 				quantity: this.quantity,
 			});
+			this.$router.push({name: 'Cart'});
 		},
 
 		changeImg(change) {

@@ -401,7 +401,7 @@ export default new Vuex.Store({
 					// 'Křepelčí',
 					// 'Krocaní',
 				],
-				packageQuantity: 1,
+				packageQuantity: 2,
 				price: 400,
 				frontImg: 'setSmall1.jpg',
 				imgs: ['setSmall1.jpg', 'setSmall2.jpg'],
@@ -418,7 +418,7 @@ export default new Vuex.Store({
 					// 'Křepelčí',
 					// 'Krocaní',
 				],
-				packageQuantity: 1,
+				packageQuantity: 3,
 				price: 600,
 				frontImg: 'setMedium1.jpg',
 				imgs: ['setMedium1.jpg', 'setMedium2.jpg'],
@@ -532,9 +532,23 @@ export default new Vuex.Store({
 				i,
 				item,
 			] of context.state.cart.entries()) {
-				if (data._id === item._id) {
+				if (
+					data._id === item._id &&
+					context.state.cart[i].quantity +
+						data.quantity <=
+						100
+				) {
 					context.state.cart[i].quantity +=
 						data.quantity;
+
+					return;
+				} else if (
+					data._id === item._id &&
+					context.state.cart[i].quantity +
+						data.quantity >
+						100
+				) {
+					context.state.cart[i].quantity = 100;
 					return;
 				}
 			}

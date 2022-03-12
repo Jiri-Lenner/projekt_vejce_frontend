@@ -4,7 +4,7 @@
 	>
 		<div
 			class="body__app__homeContainer__main__pageNav__buttonContainer"
-			v-if="filteredItemsLength !== 0"
+			v-if="MaxPage > 1"
 		>
 			<div
 				class="body__app__homeContainer__main__pageNav__buttonContainer__button"
@@ -13,10 +13,9 @@
 					body__app__homeContainer__main__pageNav__buttonContainer__button___available:
 						this.Page - 1 > 0,
 				}"
+				v-if="!(this.Page - 1 == 0)"
 			>
-				<font-awesome-icon
-					icon="fa-solid fa-angle-left"
-				/>
+				{{ this.Page - 1 }}
 			</div>
 			<div
 				class="body__app__homeContainer__main__pageNav__buttonContainer__button__pageNumber"
@@ -30,10 +29,9 @@
 					body__app__homeContainer__main__pageNav__buttonContainer__button___available:
 						this.Page + 1 <= this.MaxPage,
 				}"
+				v-if="!(this.Page + 1 > this.MaxPage)"
 			>
-				<font-awesome-icon
-					icon="fa-solid fa-angle-right"
-				/>
+				{{ this.Page + 1 }}
 			</div>
 		</div>
 	</section>
@@ -49,7 +47,6 @@ export default {
 	},
 	// get essential data from home view which is responsibel for data filtration
 	props: {
-		filteredItemsLength: Number,
 		MaxPage: Number,
 	},
 	computed: {

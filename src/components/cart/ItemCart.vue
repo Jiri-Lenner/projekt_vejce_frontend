@@ -35,7 +35,7 @@
 					@click="changeQuantity(-1)"
 				>
 					<font-awesome-icon
-						icon="fa-solid fa-angle-left"
+						icon="fa-solid fa-minus"
 					/>
 				</div>
 				<div
@@ -47,12 +47,12 @@
 					class="body__app__cartContainer__detailCard__cartItems__item__rightContainer__container__button"
 					:class="{
 						body__app__cartContainer__detailCard__cartItems__item__rightContainer__container__count___available:
-							this.quantity + 1 <= 99,
+							this.quantity + 1 <= 100,
 					}"
 					@click="changeQuantity(1)"
 				>
 					<font-awesome-icon
-						icon="fa-solid fa-angle-right"
+						icon="fa-solid fa-plus"
 					/>
 				</div>
 			</div>
