@@ -123,16 +123,15 @@
 						class="body__app__orderContainer__formContainer__formCover__form__continueButtonContainer"
 						@click="submitOrder"
 					>
-						<router-link
+						<div
 							class="body__app__orderContainer__formContainer__formCover__form__continueButton"
-							to="/kosik/formular"
 							:class="{
 								body__app__orderContainer__formContainer__formCover__form__continueButton___off:
 									!this.submitOrderEv,
 							}"
 						>
-							POKRAČOVAT
-						</router-link>
+							OBJEDNAT
+						</div>
 					</div>
 				</div>
 			</form>
@@ -175,12 +174,48 @@ export default {
 			}
 			this.paymentMethod = method;
 		},
-		submitOrder() {
+		async submitOrder() {
+			const fullName = this.fullName;
+			const email = this.email;
+			const phone = this.phone;
+			const street = this.street;
+			const town = this.town;
+			const houseAddress = this.houseAddress;
+			const message = this.message;
+			const paymentMethod = this.paymentMethod;
+
+			const data = {
+				fullName: fullName,
+				email: email,
+				phone: phone,
+				street: street,
+				town: town,
+				houseAddress: houseAddress,
+				message: message,
+				paymentMethod: paymentMethod,
+			};
+
 			if (
 				this.submitOrderEv &&
 				this.paymentMethod == 'inPerson' &&
 				this.$store.state.cart.length > 0
 			) {
+				// submit order
+
+				await fetch(
+					'http://localhost:3000/api/v1/order',
+					{
+						method: 'POST',
+						headers: {
+							'Content-Type':
+								'application/json',
+						},
+						body: JSON.stringify({
+							data: data,
+						}),
+					}
+				);
+
 				// submit to server
 				// figure out if it went alright
 				// if yes
@@ -200,11 +235,24 @@ export default {
 			) {
 				// for the online payment
 
+				await fetch(
+					'http://localhost:3000/api/v1/order',
+					{
+						method: 'POST',
+						headers: {
+							'Content-Type':
+								'application/json',
+						},
+						body: JSON.stringify({
+							data: data,
+						}),
+					}
+				);
+
 				// submit to server
 				// figure out if it went alright
 				// if yes
 				if (false) {
-					this.$store.commit('orderedSuccess');
 					this.$router.push({name: 'Success'});
 					// clean up the cart
 					this.$store.commit('cleanCart');

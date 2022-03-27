@@ -51,8 +51,7 @@ export default {
 		},
 		checkLiked() {
 			const liked = [...this.$store.state.liked];
-			console.log('Like');
-			console.log(this.$store.state.liked);
+
 			for (const likedId of this.$store.state.liked) {
 				let flag = false;
 				for (const item of this.$store.state
@@ -69,11 +68,8 @@ export default {
 			}
 
 			this.$store.commit('removeLike', liked);
-			console.log(this.$store.state.liked);
 		},
 		checkCart() {
-			console.log('cart');
-			console.log(this.$store.state.cart);
 			const cart = [...this.$store.state.cart];
 
 			for (const cartItem of this.$store.state.cart) {
@@ -91,12 +87,12 @@ export default {
 				cart.splice(cart.indexOf(cartItem), 1);
 			}
 			this.$store.commit('removeCart', cart);
-			console.log(this.$store.state.cart);
 		},
 	},
 
 	// run both methods before the page gets rendered
-	beforeMount() {
+	async created() {
+		await this.$store.dispatch('getItems');
 		this.initFilterEggs();
 		this.initFilterQuantity();
 		this.checkLiked();

@@ -7,9 +7,7 @@
 			class="body__app__cartContainer__detailCard__cartItems__item__leftContainer"
 		>
 			<img
-				:src="
-					require(`@/assets/img/itemImg/${this.itemData.frontImg}`)
-				"
+				:src="`http://localhost:3000/public/img/${this.itemData.frontImg}`"
 				alt=""
 			/>
 
@@ -126,7 +124,6 @@ export default {
 					return property;
 				}
 			}
-			this.$router.push({name: 'NotFound'});
 		},
 	},
 };

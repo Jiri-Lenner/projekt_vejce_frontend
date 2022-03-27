@@ -3,11 +3,9 @@
 		class="body__app__detailContainer__detailCard__imgCarousel"
 	>
 		<img
-			:src="
-				require(`@/assets/img/itemImg/${
-					this.itemData.imgs[this.imgIndex]
-				}`)
-			"
+			:src="`http://localhost:3000/public/img/${
+				this.itemData.imgs[this.imgIndex]
+			}`"
 			alt=""
 		/>
 
