@@ -183,6 +183,7 @@ export default {
 			const houseAddress = this.houseAddress;
 			const message = this.message;
 			const paymentMethod = this.paymentMethod;
+			const cart = this.$store.state.cart;
 
 			const data = {
 				fullName: fullName,
@@ -193,6 +194,7 @@ export default {
 				houseAddress: houseAddress,
 				message: message,
 				paymentMethod: paymentMethod,
+				cart: cart,
 			};
 
 			if (

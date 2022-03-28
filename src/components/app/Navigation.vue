@@ -51,7 +51,12 @@
 					<div
 						class="body__app__homeContainer__header__headerContainer__cart__count"
 						v-if="
-							!$store.state.cart.length == 0
+							!(
+								$store.state.cart.length ==
+								0
+							) &&
+							this.$store.state.items
+								.length != 0
 						"
 					>
 						<p>

@@ -3,7 +3,8 @@
 		class="body__app__cartContainer__detailCard__cartItems"
 		:class="{
 			body__app__cartContainer__detailCard__cartItems___off:
-				overallQuantity == 0,
+				overallQuantity == 0 ||
+				this.$store.state.items.length == 0,
 		}"
 	>
 		<h2>Košík</h2>

@@ -1,7 +1,10 @@
 <template>
 	<aside
 		class="body__app__cartContainer__detailCard__priceSummary"
-		v-if="overallQuantity != 0"
+		v-if="
+			overallQuantity != 0 &&
+			this.$store.state.items.length != 0
+		"
 	>
 		<h2>Přehled</h2>
 		<div
