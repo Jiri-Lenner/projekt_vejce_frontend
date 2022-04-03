@@ -17,6 +17,17 @@ const routes = [
 		component: Home,
 	},
 	{
+		path: '/polozky',
+		name: 'Items',
+		component: Home,
+	},
+	{
+		path: '/polozky/:_id',
+		name: 'ItemInfo',
+		component: ItemInfo,
+		props: true,
+	},
+	{
 		path: '/kosik',
 		name: 'Cart',
 		component: Cart,
@@ -35,17 +46,6 @@ const routes = [
 		path: '/kosik/formular/error',
 		name: 'Failed',
 		component: Failed,
-	},
-	{
-		path: '/polozky',
-		name: 'Items',
-		component: Home,
-	},
-	{
-		path: '/polozky/:_id',
-		name: 'ItemInfo',
-		component: ItemInfo,
-		props: true,
 	},
 	{
 		path: '/:catchAll(.*)',

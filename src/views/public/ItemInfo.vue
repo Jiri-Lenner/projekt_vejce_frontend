@@ -16,7 +16,7 @@ import InfoNav from '@/components/infoPage/InfoNav.vue';
 import Carousel from '@/components/infoPage/Carousel.vue';
 import ItemDetailCard from '@/components/infoPage/ItemDetailCard.vue';
 export default {
-	name: 'Home',
+	name: 'ItemInfo',
 	props: {
 		_id: String,
 	},
@@ -30,12 +30,19 @@ export default {
 	computed: {
 		// get the right data from the id
 		itemData() {
+			let flag = false;
 			for (const item of this.$store.state.items) {
 				if (item._id === this._id) {
+					flag = true;
 					return item;
 				}
 			}
-			this.$router.push({name: 'NotFound'});
+			if (
+				this.$store.state.items.length > 0 &&
+				flag
+			) {
+				this.$router.push({name: 'NotFound'});
+			}
 		},
 	},
 };

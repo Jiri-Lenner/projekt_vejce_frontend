@@ -216,20 +216,22 @@ export default {
 							data: data,
 						}),
 					}
-				);
+				).then(response => {
+					if (response.status == 200) {
+						this.$store.commit(
+							'orderedSuccess'
+						);
+						this.$router.push({
+							name: 'Success',
+						});
 
-				// submit to server
-				// figure out if it went alright
-				// if yes
-				if (false) {
-					this.$store.commit('orderedSuccess');
-					this.$router.push({name: 'Success'});
-					// clean up the cart
-					this.$store.commit('cleanCart');
-				} else {
-					this.$store.commit('orderedFailed');
-					this.$router.push({name: 'Failed'});
-				}
+						// clean up the cart
+						this.$store.commit('cleanCart');
+					} else {
+						this.$store.commit('orderedFailed');
+						this.$router.push({name: 'Failed'});
+					}
+				});
 			} else if (
 				this.submitOrderEv &&
 				this.paymentMethod == 'online' &&

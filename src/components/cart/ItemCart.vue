@@ -7,14 +7,20 @@
 			class="body__app__cartContainer__detailCard__cartItems__item__leftContainer"
 		>
 			<img
+				src="@/assets/img/itemImg/white-image.png"
+				alt=""
+				v-if="!this.itemData"
+			/>
+			<img
 				:src="`http://localhost:3000/public/img/${this.itemData.frontImg}`"
+				v-if="this.itemData"
 				alt=""
 			/>
 
 			<router-link
 				class="body__app__cartContainer__detailCard__cartItems__item__leftContainer__nameLinke"
 				:to="`/polozky/${this.item._id}`"
-				>{{ itemData.name }}</router-link
+				>{{ cartItemName }}</router-link
 			>
 		</div>
 
@@ -113,7 +119,13 @@ export default {
 
 		// price for each item times the quantity
 		itemPrice() {
-			return this.item.quantity * this.itemData.price;
+			if (this.itemData) {
+				return (
+					this.item.quantity * this.itemData.price
+				);
+			} else {
+				return '';
+			}
 		},
 
 		// get the right data from the id
@@ -123,6 +135,13 @@ export default {
 				if (property._id === this.item._id) {
 					return property;
 				}
+			}
+		},
+		cartItemName() {
+			if (this.itemData) {
+				return this.itemData.name;
+			} else {
+				return '';
 			}
 		},
 	},

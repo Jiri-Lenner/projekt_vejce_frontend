@@ -3,9 +3,15 @@
 		class="body__app__detailContainer__detailCard__imgCarousel"
 	>
 		<img
+			v-if="this.itemData"
 			:src="`http://localhost:3000/public/img/${
 				this.itemData.imgs[this.imgIndex]
 			}`"
+			alt=""
+		/>
+		<img
+			v-if="!this.itemData"
+			src="@/assets/img/itemImg/white-image.png"
 			alt=""
 		/>
 
@@ -42,6 +48,7 @@ export default {
 			imgIndex: 0,
 		};
 	},
+
 	methods: {
 		changeImg(change) {
 			if (
@@ -59,7 +66,11 @@ export default {
 	},
 	computed: {
 		imgArrIf() {
-			return this.itemData.imgs.length > 1;
+			if (this.itemData) {
+				return this.itemData.imgs.length > 1;
+			} else {
+				return false;
+			}
 		},
 	},
 };

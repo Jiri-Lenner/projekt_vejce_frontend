@@ -5,7 +5,7 @@
 		<div
 			class="body__app__detailContainer__detailCard__details__headerContainer"
 		>
-			<h2>{{ itemData.name }}</h2>
+			<h2>{{ itemName }}</h2>
 			<div
 				class="body__app__detailContainer__detailCard__details__quantityAndBuy__container__like__button"
 				id="heart"
@@ -38,7 +38,7 @@
 		<p
 			class="body__app__detailContainer__detailCard__details__description"
 		>
-			{{ itemData.description }}
+			{{ itemDescription }}
 		</p>
 		<div
 			class="body__app__detailContainer__detailCard__details__predefinedDescription"
@@ -74,7 +74,7 @@
 				<p
 					class="body__app__detailContainer__detailCard__details__quantityAndBuy__container__price"
 				>
-					{{ itemData.price }}Kč
+					{{ itemPrice }}Kč
 				</p>
 			</div>
 
@@ -173,31 +173,59 @@ export default {
 		// computed properties for the the information deck
 		// Compute egg text for the item egg list
 		eggType() {
-			const eggTypes = this.itemData.eggType;
-			if (eggTypes.length > 1) {
-				let eggTypesString = '';
-				for (const [
-					i,
-					eggType,
-				] of eggTypes.entries()) {
-					if (i == eggTypes.length - 1) {
-						eggTypesString += `${eggType}`;
-						break;
+			if (this.itemData) {
+				const eggTypes = this.itemData.eggType;
+				if (eggTypes.length > 1) {
+					let eggTypesString = '';
+					for (const [
+						i,
+						eggType,
+					] of eggTypes.entries()) {
+						if (i == eggTypes.length - 1) {
+							eggTypesString += `${eggType}`;
+							break;
+						}
+						eggTypesString += `${eggType}, `;
 					}
-					eggTypesString += `${eggType}, `;
+					return eggTypesString;
+				} else {
+					return eggTypes[0];
 				}
-				return eggTypesString;
 			} else {
-				return eggTypes[0];
+				return '';
 			}
 		},
 		// Compute the text for the item quantity
 		packageQuantity() {
-			const eggCount = this.itemData.packageQuantity;
-			if (eggCount < 5) {
-				return `${eggCount} kraslice v jednom balení`;
-			} else if (eggCount > 4) {
-				return `${eggCount} kraslic v jednom balení`;
+			if (this.itemData) {
+				const eggCount =
+					this.itemData.packageQuantity;
+				if (eggCount < 5) {
+					return `${eggCount} kraslice v jednom balení`;
+				} else if (eggCount > 4) {
+					return `${eggCount} kraslic v jednom balení`;
+				}
+			} else {
+				return '';
+			}
+		},
+		itemName() {
+			if (this.itemData) {
+				return this.itemData.name;
+			} else {
+				return '';
+			}
+		},
+		itemDescription() {
+			if (this.itemData) {
+				return this.itemData.description;
+			} else {
+				return '';
+			}
+		},
+		itemPrice() {
+			if (this.itemData) {
+				return this.itemData.price;
 			}
 		},
 	},
