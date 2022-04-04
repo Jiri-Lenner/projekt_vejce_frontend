@@ -122,13 +122,9 @@ export default new Vuex.Store({
 			state.cart = [];
 		},
 		// order -> enable access to successful order
-		orderedSuccess(state) {
-			state.orderedSuccess = true;
-		},
+
 		// order -> enable access to failed order
-		orderedFailed(state) {
-			state.orderedFailed = true;
-		},
+
 		// remove like when liked item was removed by the admin
 		removeLike(state, data) {
 			state.liked = data;

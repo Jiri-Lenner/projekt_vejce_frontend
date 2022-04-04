@@ -21,10 +21,5 @@
 <script>
 export default {
 	name: 'Failed',
-	mounted() {
-		if (!this.$store.state.orderedFailed) {
-			this.$router.push({name: 'Home'});
-		}
-	},
 };
 </script>

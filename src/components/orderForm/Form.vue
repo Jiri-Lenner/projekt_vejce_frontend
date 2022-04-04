@@ -218,9 +218,6 @@ export default {
 					}
 				).then(response => {
 					if (response.status == 200) {
-						this.$store.commit(
-							'orderedSuccess'
-						);
 						this.$router.push({
 							name: 'Success',
 						});
@@ -228,7 +225,6 @@ export default {
 						// clean up the cart
 						this.$store.commit('cleanCart');
 					} else {
-						this.$store.commit('orderedFailed');
 						this.$router.push({name: 'Failed'});
 					}
 				});
@@ -261,7 +257,6 @@ export default {
 					// clean up the cart
 					this.$store.commit('cleanCart');
 				} else {
-					this.$store.commit('orderedFailed');
 					this.$router.push({name: 'Failed'});
 				}
 			}
