@@ -4,7 +4,7 @@
 	>
 		<img
 			v-if="this.itemData && this.itemData['imgs']"
-			:src="`https://kraslicelennerova/public/img/${
+			:src="`https://kraslicelennerova.cz/public/img/${
 				this.itemData.imgs[this.imgIndex]
 			}`"
 			alt=""
