@@ -216,7 +216,7 @@ export default new Vuex.Store({
 		},
 		async getItems(context) {
 			const dataObj = await fetch(
-				'http://localhost:3000/api/v1/eggs',
+				'http://kraslicelennerova/api/v1/eggs',
 				{
 					method: 'GET',
 					headers: {

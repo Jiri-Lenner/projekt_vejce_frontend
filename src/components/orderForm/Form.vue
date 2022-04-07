@@ -205,7 +205,7 @@ export default {
 				// submit order
 
 				await fetch(
-					'http://localhost:3000/api/v1/order',
+					'http://kraslicelennerova/api/v1/order',
 					{
 						method: 'POST',
 						headers: {
@@ -235,8 +235,8 @@ export default {
 			) {
 				// for the online payment
 
-				await fetch(
-					'http://localhost:3000/api/v1/order',
+				const response = await fetch(
+					'http://kraslicelennerova/api/v1/order',
 					{
 						method: 'POST',
 						headers: {
@@ -248,17 +248,20 @@ export default {
 						}),
 					}
 				);
+				const formatedResponse =
+					await response.json();
 
-				// submit to server
-				// figure out if it went alright
-				// if yes
-				if (false) {
-					this.$router.push({name: 'Success'});
-					// clean up the cart
-					this.$store.commit('cleanCart');
-				} else {
+				console.log(formatedResponse);
+
+				if (response.status != 200) {
 					this.$router.push({name: 'Failed'});
+					return;
 				}
+
+				window.location.href =
+					formatedResponse.data.sessionUrl.url;
+
+				// PROBLEM => how will the data be send to the server => if the order was successfull
 			}
 		},
 	},
