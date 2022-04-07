@@ -205,7 +205,7 @@ export default {
 				// submit order
 
 				await fetch(
-					'http://kraslicelennerova/api/v1/order',
+					'http://kraslicelennerova.cz/api/v1/order',
 					{
 						method: 'POST',
 						headers: {
@@ -236,7 +236,7 @@ export default {
 				// for the online payment
 
 				const response = await fetch(
-					'http://kraslicelennerova/api/v1/order',
+					'http://kraslicelennerova.cz/api/v1/order',
 					{
 						method: 'POST',
 						headers: {
