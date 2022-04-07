@@ -5,7 +5,6 @@ import VuexPersistence from 'vuex-persist';
 Vue.use(Vuex);
 
 // presistance
-
 const vuexLocal = new VuexPersistence({
 	key: 'krasliceLennerova',
 	storage: window.localStorage,

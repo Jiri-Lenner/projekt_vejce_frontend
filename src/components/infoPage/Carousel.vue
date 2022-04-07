@@ -3,14 +3,15 @@
 		class="body__app__detailContainer__detailCard__imgCarousel"
 	>
 		<img
-			v-if="this.itemData"
-			:src="`http://localhost:3000/public/img/${
+			v-if="this.itemData && this.itemData['imgs']"
+			:src="`https://kraslicelennerova/public/img/${
 				this.itemData.imgs[this.imgIndex]
 			}`"
 			alt=""
 		/>
+
 		<img
-			v-if="!this.itemData"
+			v-if="!this.itemData || !this.itemData['imgs']"
 			src="@/assets/img/itemImg/white-image.png"
 			alt=""
 		/>

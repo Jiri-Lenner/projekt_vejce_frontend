@@ -9,11 +9,16 @@
 			<img
 				src="@/assets/img/itemImg/white-image.png"
 				alt=""
-				v-if="!this.itemData"
+				v-if="
+					!this.itemData ||
+					!this.itemData.frontImg
+				"
 			/>
 			<img
-				:src="`http://localhost:3000/public/img/${this.itemData.frontImg}`"
-				v-if="this.itemData"
+				:src="`https://kraslicelennerova.cz/public/img/${this.itemData.frontImg}`"
+				v-if="
+					this.itemData && this.itemData.frontImg
+				"
 				alt=""
 			/>
 

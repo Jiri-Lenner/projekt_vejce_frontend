@@ -15,7 +15,7 @@
 		<!-- Item img -->
 		<img
 			class="body__app__homeContainer__main__contentContainer__itemContainer__item__itemBackgroundImg"
-			:src="`http://localhost:3000/public/img/${this.content.frontImg}`"
+			:src="`https://kraslicelennerova.cz/public/img/${this.content.frontImg}`"
 			alt=""
 		/>
 		<!-- Description container -->
