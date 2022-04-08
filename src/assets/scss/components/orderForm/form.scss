@@ -226,12 +226,12 @@
 
 	.body__app__orderContainer__formContainer__img {
 		width: 53%;
-		// clip-path: polygon(
-		//   13% 0,
-		//   100% 0,
-		//   100% 100%,
-		//   0% 100%
-		// );
+		clip-path: polygon(
+			13% 0,
+			100% 0,
+			100% 100%,
+			0% 100%
+		);
 		> img {
 			object-fit: cover;
 			height: 100%;
