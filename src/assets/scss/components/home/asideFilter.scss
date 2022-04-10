@@ -136,4 +136,27 @@
 			}
 		}
 	}
+
+	@media screen and (max-width: 1750px) {
+		width: 25%;
+	}
+	@media screen and (max-width: 1550px) {
+		width: 30%;
+	}
+	@media screen and (max-width: 1350px) {
+		width: 30%;
+	}
+	@media screen and (max-width: 1150px) {
+		width: 50%;
+	}
+	@media screen and (max-width: 950px) {
+	}
+	@media screen and (max-width: 750px) {
+		position: static;
+		width: 100%;
+	}
+	@media screen and (max-width: 550px) {
+	}
+	@media screen and (max-width: 450px) {
+	}
 }
