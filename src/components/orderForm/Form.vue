@@ -258,8 +258,6 @@ export default {
 				const formatedResponse =
 					await response.json();
 
-				console.log(formatedResponse);
-
 				if (response.status != 200) {
 					this.$router.push({name: 'Failed'});
 					return;

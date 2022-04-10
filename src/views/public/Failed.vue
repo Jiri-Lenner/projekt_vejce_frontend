@@ -1,7 +1,13 @@
 <template>
 	<div class="body__app__failedContainer">
 		<div class="body__app__failedContainer__box">
-			<h2>Chyba!</h2>
+			<div>
+				<img
+					src="@/assets/img/pageAssets/close.png"
+					alt=""
+				/>
+				<h2>Chyba!</h2>
+			</div>
 
 			<p>
 				Došlo k chybě při odesílání obejdnávky,
@@ -9,10 +15,10 @@
 			</p>
 			<!-- link domů -->
 			<router-link
-				to="/"
+				to="/kosik"
 				class="body__app__failedContainer__box__chip"
 			>
-				ZPĚT DO OBCHODU
+				ZPĚT DO KOŠÍKU
 			</router-link>
 		</div>
 	</div>

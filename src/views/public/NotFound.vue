@@ -1,7 +1,13 @@
 <template>
 	<div class="body__app__notFoundContainer">
 		<div class="body__app__notFoundContainer__box">
-			<h2>Chyba!</h2>
+			<div>
+				<img
+					src="@/assets/img/pageAssets/warning.png"
+					alt=""
+				/>
+				<h2>Chyba!</h2>
+			</div>
 			<p>Stránka nebyla nalezena!</p>
 			<!-- link domů -->
 			<router-link

@@ -9,7 +9,7 @@
 				<font-awesome-icon
 					icon="fa-solid fa-pen-ruler"
 				/>
-				<p>Designed by:</p>
+				<p>Produced by:</p>
 				<p>Jiří Lenner</p>
 				<p>Ver. 1.0.0</p>
 			</div>

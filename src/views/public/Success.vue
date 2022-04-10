@@ -1,7 +1,13 @@
 <template>
 	<div class="body__app__successContainer">
 		<div class="body__app__successContainer__box">
-			<h2>Objednávka úspěšně odeslána!</h2>
+			<div>
+				<img
+					src="@/assets/img/pageAssets/check.png"
+					alt=""
+				/>
+				<h2>Objednávka úspěšně odeslána!</h2>
+			</div>
 
 			<p>
 				Podrobnosti objednávky naleznete v emailu!
@@ -20,5 +26,8 @@
 <script>
 export default {
 	name: 'Success',
+	created() {
+		this.$store.commit('cleanCart');
+	},
 };
 </script>
