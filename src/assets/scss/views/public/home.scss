@@ -111,7 +111,7 @@ body {
 					width: 100%;
 					grid-template-columns: repeat(
 						4,
-						minmax(350px, 400px)
+						minmax(300px, 350px)
 					);
 				}
 			}
@@ -159,7 +159,7 @@ body {
 					width: 100%;
 					grid-template-columns: repeat(
 						3,
-						minmax(350px, 450px)
+						minmax(300px, 350px)
 					);
 				}
 			}
@@ -215,6 +215,7 @@ body {
 		@media screen and (max-width: 750px) {
 			max-width: 500px;
 			.body__app__homeContainer__main__contentContainer {
+				margin-top: 3rem;
 				.body__app__homeContainer__main__contentContainer__itemContainer {
 					width: 75%;
 					display: grid;
@@ -241,6 +242,9 @@ body {
 		}
 		@media screen and (max-width: 450px) {
 			max-width: 300px;
+			.body__app__homeContainer__main__contentContainer {
+				margin-top: 2rem;
+			}
 			// velikosti
 			// mezery
 		}
