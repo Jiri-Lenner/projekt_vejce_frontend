@@ -3,27 +3,6 @@
 		<div
 			class="body__app__homeContainer__footer__footerContainer"
 		>
-			<!-- <div
-				class="body__app__homeContainer__footer__footerContainer__info"
-			>
-				<font-awesome-icon
-					icon="fa-solid fa-phone"
-				/>
-				<p>TEL:</p>
-				<a href="tel:666666666">606685445</a>
-			</div>
-			<div
-				class="body__app__homeContainer__footer__footerContainer__info"
-			>
-				<font-awesome-icon
-					icon="fa-solid fa-envelope"
-				/>
-				<p>EMAIL:</p>
-				<a
-					href="mailto:lenner.ji.2019@skola.ssps.cz"
-					>lenner.ji.2019@skola.ssps.cz</a
-				>
-			</div> -->
 			<div
 				class="body__app__homeContainer__footer__footerContainer__developer"
 			>

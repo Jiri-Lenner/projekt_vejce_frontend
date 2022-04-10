@@ -2,6 +2,7 @@
 	width: 100%;
 	display: flex;
 	justify-content: center;
+	border-top: 3rem solid $panelBackground;
 
 	margin-top: auto;
 
@@ -11,6 +12,7 @@
 		width: 100%;
 		max-width: 1600px;
 		display: flex;
+		box-sizing: border-box;
 		padding: 1rem 0;
 
 		font-size: 1rem;

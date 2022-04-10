@@ -1,10 +1,10 @@
 <template>
 	<section
 		class="body__app__homeContainer__main__pageNav"
+		v-if="MaxPage > 1"
 	>
 		<div
 			class="body__app__homeContainer__main__pageNav__buttonContainer"
-			v-if="MaxPage > 1"
 		>
 			<div
 				class="body__app__homeContainer__main__pageNav__buttonContainer__button"
