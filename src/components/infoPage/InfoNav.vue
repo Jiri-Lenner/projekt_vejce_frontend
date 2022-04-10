@@ -1,16 +1,21 @@
 <template>
 	<div class="body__app__detailContainer__goBackNav">
-		<router-link
-			to="/"
+		<div
+			@click="goBack()"
 			class="body__app__detailContainer__goBackNav__back"
 		>
 			ZPĚT
-		</router-link>
+		</div>
 	</div>
 </template>
 
 <script>
 export default {
 	name: 'InfoNav',
+	methods: {
+		goBack() {
+			this.$router.go(-1);
+		},
+	},
 };
 </script>

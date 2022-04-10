@@ -8,15 +8,12 @@
 				to="/"
 				class="body__app__homeContainer__header__headerContainer__title"
 			>
-				Kraslice Lennerová
-			</router-link>
-			<!--Logo (in center)-->
-			<router-link
-				to="/"
-				class="body__app__homeContainer__header__headerContainer__logoContainer"
-			>
+				<p v-if="windowWidth > 450">
+					Kraslice Lennerová
+				</p>
+				<p v-if="windowWidth < 450">Lennerová</p>
 				<img
-					class="body__app__homeContainer__header__headerContainer__logoContainer__logo"
+					class="body__app__homeContainer__header__headerContainer__title__img"
 					src="@/assets/img/pageAssets/logo.png"
 					alt=""
 				/>
@@ -30,6 +27,7 @@
 				<router-link
 					to="/workshopy_a_prodejna"
 					class="body__app__homeContainer__header__headerContainer__workshops"
+					v-if="windowWidth > 1150"
 				>
 					Workshopy a Prodejna
 				</router-link>
@@ -37,6 +35,7 @@
 				<router-link
 					to="/o_malirce"
 					class="body__app__homeContainer__header__headerContainer__about"
+					v-if="windowWidth > 1150"
 				>
 					O Malířce
 				</router-link>
@@ -62,7 +61,15 @@
 						<p>
 							{{ overallQuantity }}
 						</p>
-					</div>
+					</div> </router-link
+				><router-link
+					to="/menu"
+					class="body__app__homeContainer__header__headerContainer__nav"
+					v-if="windowWidth < 1150"
+				>
+					<font-awesome-icon
+						icon="fa-solid fa-bars"
+					/>
 				</router-link>
 			</div>
 		</div>
@@ -72,6 +79,11 @@
 <script>
 export default {
 	name: 'Navigation',
+	data() {
+		return {
+			windowWidth: window.innerWidth,
+		};
+	},
 	computed: {
 		// calculate the the number of items
 		overallQuantity() {
@@ -81,6 +93,12 @@ export default {
 			}
 			return overallQuantity;
 		},
+	},
+	mounted() {
+		window.addEventListener('resize', () => {
+			this.windowWidth = window.innerWidth;
+			console.log('resize');
+		});
 	},
 };
 </script>

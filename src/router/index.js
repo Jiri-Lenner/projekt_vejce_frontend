@@ -7,6 +7,7 @@ import NotFound from '../views/public/NotFound.vue';
 import OrderForm from '../views/public/OrderForm.vue';
 import Success from '../views/public/Success.vue';
 import Failed from '../views/public/Failed.vue';
+import Menu from '../views/public/Menu.vue';
 
 Vue.use(VueRouter);
 
@@ -46,6 +47,11 @@ const routes = [
 		path: '/kosik/formular/error',
 		name: 'Failed',
 		component: Failed,
+	},
+	{
+		path: '/menu',
+		name: 'Menu',
+		component: Menu,
 	},
 	{
 		path: '/:catchAll(.*)',

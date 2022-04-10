@@ -27,6 +27,9 @@ import {
 	faCoins as faCoinsSolid,
 	faPlus as faPlusSolid,
 	faMinus as faMinusSolid,
+	faBars as faBarsSolid,
+	faPalette as faPaletteSolid,
+	faUser as faUserSolid,
 } from '@fortawesome/free-solid-svg-icons';
 
 import {faHeart as faHeartRegular} from '@fortawesome/free-regular-svg-icons';
@@ -52,7 +55,10 @@ library.add(
 	faCreditCardSolid,
 	faCoinsSolid,
 	faPlusSolid,
-	faMinusSolid
+	faMinusSolid,
+	faBarsSolid,
+	faPaletteSolid,
+	faUserSolid
 );
 
 /* add font awesome icon component */
