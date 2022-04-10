@@ -292,7 +292,10 @@ export default {
 			return this.town.length != 0;
 		},
 		houseAddressEv() {
-			return this.houseAddress.length != 0;
+			return (
+				/\d{5}/.test(this.houseAddress) ||
+				/\d{3} ?\d{2}/.test(this.houseAddress)
+			);
 		},
 		paymentMethodEv() {
 			return this.paymentMethod != '';
