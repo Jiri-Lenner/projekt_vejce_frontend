@@ -11,7 +11,7 @@
 				<p v-if="windowWidth > 450">
 					Kraslice Lennerová
 				</p>
-				<p v-if="windowWidth < 450">Lennerová</p>
+				<p v-if="windowWidth <= 450">Lennerová</p>
 				<img
 					class="body__app__homeContainer__header__headerContainer__title__img"
 					src="@/assets/img/pageAssets/logo.png"
