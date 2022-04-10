@@ -220,6 +220,18 @@
 						transform: none;
 					}
 				}
+				.body__app__orderContainer__formContainer__formCover__form__continueButton___orderSend {
+					@include chipLink;
+					background-color: #a93b4a;
+
+					&:hover {
+						transform: none;
+						cursor: not-allowed;
+					}
+					&:active {
+						transform: none;
+					}
+				}
 			}
 		}
 	}

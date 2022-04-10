@@ -127,7 +127,10 @@
 							class="body__app__orderContainer__formContainer__formCover__form__continueButton"
 							:class="{
 								body__app__orderContainer__formContainer__formCover__form__continueButton___off:
-									!this.submitOrderEv,
+									!this.submitOrderEv &&
+									!this.orderButton,
+								body__app__orderContainer__formContainer__formCover__form__continueButton___orderSend:
+									this.orderButton,
 							}"
 						>
 							OBJEDNAT
@@ -164,6 +167,7 @@ export default {
 			houseAddress: '',
 			message: '',
 			paymentMethod: '',
+			orderButton: false,
 		};
 	},
 	methods: {
@@ -200,10 +204,11 @@ export default {
 			if (
 				this.submitOrderEv &&
 				this.paymentMethod == 'inPerson' &&
-				this.$store.state.cart.length > 0
+				this.$store.state.cart.length > 0 &&
+				!this.orderButton
 			) {
+				this.orderButton = true;
 				// submit order
-
 				await fetch(
 					'https://kraslicelennerova.cz/api/v1/order',
 					{
@@ -231,8 +236,10 @@ export default {
 			} else if (
 				this.submitOrderEv &&
 				this.paymentMethod == 'online' &&
-				this.$store.state.cart.length > 0
+				this.$store.state.cart.length > 0 &&
+				!this.orderButton
 			) {
+				this.orderButton = true;
 				// for the online payment
 
 				const response = await fetch(
