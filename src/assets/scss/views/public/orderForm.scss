@@ -1,7 +1,6 @@
 @import '../../components/orderForm/formNav';
 @import '../../components/orderForm/form';
 
-
 .body__app__orderContainer {
 	width: 100%;
 	display: flex;
@@ -9,13 +8,13 @@
 	align-items: center;
 	flex-direction: column;
 
-	// order form nav	
+	// order form nav
 
 	// form
-	
+
 	.body__app__orderContainer__bottomSpace {
 		margin-top: auto;
-		height: 8rem;
+		height: 2rem;
 		width: 100%;
 		max-width: 1600px;
 	}
