@@ -65,7 +65,7 @@
 				><router-link
 					to="/menu"
 					class="body__app__homeContainer__header__headerContainer__nav"
-					v-if="windowWidth < 1150"
+					v-if="windowWidth <= 1150"
 				>
 					<font-awesome-icon
 						icon="fa-solid fa-bars"
@@ -97,7 +97,6 @@ export default {
 	mounted() {
 		window.addEventListener('resize', () => {
 			this.windowWidth = window.innerWidth;
-			console.log('resize');
 		});
 	},
 };

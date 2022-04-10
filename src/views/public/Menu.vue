@@ -87,5 +87,17 @@ export default {
 	},
 	methods: {},
 	computed: {},
+	mounted() {
+		window.addEventListener('resize', () => {
+			this.windowWidth = window.innerWidth;
+
+			if (
+				this.windowWidth > 1050 &&
+				this.$route.path == '/menu'
+			) {
+				this.$router.push({name: 'Home'});
+			}
+		});
+	},
 };
 </script>
