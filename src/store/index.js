@@ -195,23 +195,21 @@ export default new Vuex.Store({
 						'addToCartAdditionally',
 						{index: i, quantity: data.quantity}
 					);
-
-					return;
-				} else if (
-					data._id === item._id &&
-					context.state.cart[i].quantity +
-						data.quantity >
-						100
-				) {
-					context.commit(
-						'addToCartAdditionally',
-						{index: i, quantity: 100}
-					);
 					return;
 				}
 			}
-			// otherwise -> if the item is not yet in cart
-			context.commit('addToCartFirst', data);
+
+			if (
+				context.state.items.find(
+					item => item._id == data._id
+				) &&
+				!context.state.cart.find(
+					item => item._id == data._id
+				)
+			) {
+				// otherwise -> if the item is not yet in cart
+				context.commit('addToCartFirst', data);
+			}
 		},
 		async getItems(context) {
 			const dataObj = await fetch(
