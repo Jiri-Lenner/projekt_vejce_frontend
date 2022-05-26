@@ -11,17 +11,16 @@
 @import './utils/mixins.scss';
 
 // views
-@import './views/public/home.scss';
-@import './views/auth/admin.scss';
-@import './views/public/cart.scss';
-@import './views/public/home.scss';
-@import './views/public/itemInfo.scss';
-@import './views/public/login.scss';
-@import './views/public/notFound.scss';
-@import './views/public/orderForm.scss';
-@import './views/public/success.scss';
-@import './views/public/failed.scss';
-@import './views/public/menu.scss';
+@import './views/home.scss';
+@import './views/cart.scss';
+@import './views/home.scss';
+@import './views/itemInfo.scss';
+@import './views/login.scss';
+@import './views/notFound.scss';
+@import './views/orderForm.scss';
+@import './views/success.scss';
+@import './views/failed.scss';
+@import './views/menu.scss';
 
 // components
 @import './components/app/navigation';

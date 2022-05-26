@@ -210,7 +210,7 @@ export default {
 				this.orderButton = true;
 				// submit order
 				await fetch(
-					'https://kraslicelennerova.cz/api/v1/order',
+					'https://kraslicelennerova.cz/api/v1/orders',
 					{
 						method: 'POST',
 						headers: {
@@ -243,7 +243,7 @@ export default {
 				// for the online payment
 
 				const response = await fetch(
-					'https://kraslicelennerova.cz/api/v1/order',
+					'https://kraslicelennerova.cz/api/v1/orders',
 					{
 						method: 'POST',
 						headers: {

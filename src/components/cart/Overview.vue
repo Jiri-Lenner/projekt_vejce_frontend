@@ -10,7 +10,7 @@
 		<div
 			class="body__app__cartContainer__detailCard__priceSummary__detailContainer"
 		>
-			<p>{{ quantityString }}</p>
+			<p>{{ quantityString }}:</p>
 			<p>
 				{{ price - $store.state.shippingPrice }}Kč
 			</p>
@@ -18,7 +18,7 @@
 		<div
 			class="body__app__cartContainer__detailCard__priceSummary__detailContainer"
 		>
-			<p>Cena za dopravu</p>
+			<p>Doprava:</p>
 			<p>50Kč</p>
 		</div>
 		<div
@@ -27,7 +27,7 @@
 		<div
 			class="body__app__cartContainer__detailCard__priceSummary__detailContainer"
 		>
-			<p>Celková cena</p>
+			<p>Celkem:</p>
 			<p>{{ price }}Kč</p>
 		</div>
 		<router-link
