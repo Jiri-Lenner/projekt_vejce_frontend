@@ -1,13 +1,13 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Home from '../views/public/Home.vue';
-import Cart from '../views/public/Cart.vue';
-import ItemInfo from '../views/public/ItemInfo.vue';
-import NotFound from '../views/public/NotFound.vue';
-import OrderForm from '../views/public/OrderForm.vue';
-import Success from '../views/public/Success.vue';
-import Failed from '../views/public/Failed.vue';
-import Menu from '../views/public/Menu.vue';
+import Home from '../views/Home.vue';
+import Cart from '../views/Cart.vue';
+import ItemInfo from '../views/ItemInfo.vue';
+import NotFound from '../views/NotFound.vue';
+import OrderForm from '../views/OrderForm.vue';
+import Success from '../views/Success.vue';
+import Failed from '../views/Failed.vue';
+import Menu from '../views/Menu.vue';
 
 Vue.use(VueRouter);
 
